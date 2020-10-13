@@ -64,10 +64,10 @@ public class MarketController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         capacity.setText("Capacity: " + (Inventory.total - Inventory.capacity) + "/" + Inventory.total);
         money.setText("Money: " + Farming.total_money);
-//        if(Farming.inventory_check){
+        if(Farming.inventory_check){
         inventory();
-//            Farming.inventory_check = false;
-//        }
+            Farming.inventory_check = false;
+        }
     }
 
     @FXML

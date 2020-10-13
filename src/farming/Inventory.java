@@ -17,9 +17,4 @@ public class Inventory {
         crops = FXCollections.observableArrayList();
         crops = FXCollections.observableArrayList();
     }
-    
-    
-
-    
-    
 }

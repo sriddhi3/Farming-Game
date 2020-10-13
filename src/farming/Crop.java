@@ -18,7 +18,7 @@ public class Crop {
         this.quantity = quantity;
     }
 
-    
+
     public Crop(String name) {
         this.name = name;
     }
@@ -45,6 +45,6 @@ public class Crop {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
-    
+
+
 }

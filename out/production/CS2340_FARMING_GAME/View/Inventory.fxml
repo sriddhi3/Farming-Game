@@ -8,12 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="591.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.InventoryController">
+<AnchorPane id="AnchorPane" prefHeight="591.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.InventoryController">
    <children>
-      <TableView fx:id="harvestedCrops" layoutX="21.0" layoutY="57.0" prefHeight="481.0" prefWidth="270.0">
+      <TableView fx:id="harvestedCrops" layoutX="21.0" layoutY="57.0" prefHeight="481.0" prefWidth="390.0">
         <columns>
-          <TableColumn fx:id="crop" prefWidth="173.0" text="Crops" />
+          <TableColumn fx:id="crop" prefWidth="173.0" text="Crops and Items" />
           <TableColumn fx:id="number" prefWidth="96.0" text="Quantity" />
+            <TableColumn fx:id="iType" prefWidth="120.0" text="Type" />
         </columns>
       </TableView>
       <Button layoutX="21.0" layoutY="541.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="116.0" text="Back">
@@ -31,17 +32,22 @@
             <Font name="Bell MT" size="20.0" />
          </font>
       </Label>
-      <ListView fx:id="seedsTable" layoutX="291.0" layoutY="81.0" prefHeight="457.0" prefWidth="177.0" />
-      <ListView fx:id="itemsTable" layoutX="468.0" layoutY="81.0" prefHeight="457.0" prefWidth="177.0" />
-      <Label alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="25.0" prefWidth="177.0" text="Seeds">
+      <ListView fx:id="seedsTable" layoutX="445.0" layoutY="81.0" prefHeight="457.0" prefWidth="177.0" />
+      <ListView fx:id="itemsTable" layoutX="622.0" layoutY="81.0" prefHeight="457.0" prefWidth="177.0" />
+      <Label alignment="CENTER" layoutX="445.0" layoutY="56.0" prefHeight="25.0" prefWidth="177.0" text="Seeds">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="468.0" layoutY="56.0" prefHeight="25.0" prefWidth="177.0" text="Items For Sale">
+      <Label alignment="CENTER" layoutX="623.0" layoutY="56.0" prefHeight="25.0" prefWidth="177.0" text="Items For Sale">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
+      <Button layoutX="156.0" layoutY="543.0" mnemonicParsing="false" onAction="#select" prefHeight="36.0" prefWidth="116.0" text="Select">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -9,52 +9,53 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MarketController">
+<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MarketController">
    <children>
       <TableView fx:id="inventoryTable" layoutX="14.0" layoutY="90.0" prefHeight="439.0" prefWidth="390.0">
         <columns>
-          <TableColumn fx:id="iItem" prefWidth="135.0" text="Item Name" />
-          <TableColumn fx:id="iPrice" prefWidth="111.0" text="Price" />
-            <TableColumn fx:id="quantity" prefWidth="143.0" text="Quantity" />
+          <TableColumn fx:id="iItem" prefWidth="129.99996948242188" text="Crop Name" />
+          <TableColumn fx:id="iPrice" prefWidth="81.0" text="Price" />
+            <TableColumn fx:id="quantity" prefWidth="74.0" text="Quantity" />
+            <TableColumn fx:id="iType" prefWidth="104.0" text="Type" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="8.0" layoutX="90.0" prefHeight="53.0" prefWidth="660.0" text="Market" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="8.0" layoutX="104.0" prefHeight="53.0" prefWidth="660.0" text="Market" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman Bold" size="36.0" />
          </font>
       </Label>
-      <TableView fx:id="marketTable" layoutX="429.0" layoutY="90.0" prefHeight="439.0" prefWidth="239.0">
+      <TableView fx:id="marketTable" layoutX="457.0" layoutY="90.0" prefHeight="439.0" prefWidth="254.0">
          <columns>
             <TableColumn fx:id="mItem" prefWidth="125.0" text="Item Name" />
             <TableColumn fx:id="mPrice" prefWidth="113.0" text="Price" />
          </columns>
       </TableView>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="47.0" prefHeight="43.0" prefWidth="315.0" text="Inventory">
+      <Label alignment="CENTER" layoutX="52.0" layoutY="47.0" prefHeight="43.0" prefWidth="315.0" text="Inventory">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="430.0" layoutY="47.0" prefHeight="43.0" prefWidth="474.0" text="MARKET">
+      <Label alignment="CENTER" layoutX="474.0" layoutY="47.0" prefHeight="43.0" prefWidth="474.0" text="MARKET">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="277.0" layoutY="539.0" mnemonicParsing="false" onAction="#sell" prefHeight="35.0" prefWidth="85.0" text="Sell">
+      <Button layoutX="382.0" layoutY="539.0" mnemonicParsing="false" onAction="#sell" prefHeight="35.0" prefWidth="85.0" text="Sell">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="376.0" layoutY="539.0" mnemonicParsing="false" onAction="#buy" prefHeight="35.0" prefWidth="85.0" text="Buy">
+      <Button layoutX="474.0" layoutY="539.0" mnemonicParsing="false" onAction="#buy" prefHeight="35.0" prefWidth="85.0" text="Buy">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="money" layoutX="736.0" layoutY="541.0" prefHeight="35.0" prefWidth="166.0" text="Total Money: 100">
+      <Label fx:id="money" layoutX="788.0" layoutY="541.0" prefHeight="35.0" prefWidth="166.0" text="Total Money: 100">
          <font>
             <Font name="Bell MT Bold" size="19.0" />
          </font>
       </Label>
-      <Button layoutX="179.0" layoutY="539.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="85.0" text="Back">
+      <Button layoutX="290.0" layoutY="539.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="85.0" text="Back">
          <font>
             <Font size="18.0" />
          </font>
@@ -64,18 +65,18 @@
             <Font name="Bell MT Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="seedTable" layoutX="689.0" layoutY="90.0" prefHeight="439.0" prefWidth="215.0">
+      <TableView fx:id="seedTable" layoutX="708.0" layoutY="90.0" prefHeight="439.0" prefWidth="239.0">
         <columns>
-          <TableColumn fx:id="seedCol" prefWidth="106.0" text="Seed" />
-          <TableColumn fx:id="priceCol" prefWidth="107.0" text="Price" />
+          <TableColumn fx:id="seedCol" prefWidth="125.0" text="Seed" />
+          <TableColumn fx:id="priceCol" prefWidth="113.0" text="Price" />
         </columns>
       </TableView>
-      <RadioButton fx:id="itemR" layoutX="590.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Item">
+      <RadioButton fx:id="itemR" layoutX="642.0" layoutY="546.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Item">
          <toggleGroup>
             <ToggleGroup fx:id="table" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="seedR" layoutX="659.0" layoutY="550.0" mnemonicParsing="false" text="Seed" toggleGroup="$table" />
+      <RadioButton fx:id="seedR" layoutX="711.0" layoutY="550.0" mnemonicParsing="false" text="Seed" toggleGroup="$table" />
       <Button layoutX="478.0" layoutY="539.0" mnemonicParsing="false" onAction="#update" prefHeight="35.0" prefWidth="85.0" text="Update" visible="false">
          <font>
             <Font size="18.0" />

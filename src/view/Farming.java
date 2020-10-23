@@ -1,5 +1,7 @@
 package view;
 
+import model.Crop;
+import model.Farm;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,21 +18,76 @@ public class Farming extends Application {
     private static String selectedDifficulty;
     private static String selectedSeed;
     private static String selectedSeason;
-    private static int totalMoney = 100;
-    private static Inventory inventory = new Inventory();
-    private static boolean start = true;
-    public static int[][] colors = new int[4][4];
-    private static int pricingFactor;
-    final private static int TAX = 2;
     private static int price;
+    private static String playerName;
+    private static int wellCapacity;
+    private static int maxWaterLvel;
+    private static int pricingFactor;
     private static boolean inventoryCheck = true;
     private static boolean inventoryCheck2 = true;
     private static boolean marketCheck = true;
-    private static String playerName;
+    private static boolean start = true;
+    private static boolean iuiCheck = true;    // Initail UI check
+    private static int day = 0;
+    private static int totalMoney = 100;
+    final private static int tax = 2;
+    private static int dayCount;
     public static ObservableList<Item> items = FXCollections.observableArrayList();
     public static ObservableList<Seed> seed = FXCollections.observableArrayList();
+    public static int[][] colors = new int[4][4];
+    public static Farm farm = new Farm(0, 0);
+    private static final String[] states = {"empty", "seed", "immature", "mature", "dead"};
+    private static Inventory inventory = new Inventory();
+
     public static void main(String[] args) {
+        //        farm.crops[0][0] = new Crop();
+        initFarm();
         launch(args);
+    }
+
+    
+    private static void initFarm() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                farm.crops[i][j] = new Crop();
+            }
+        }
+    }
+
+    public static int getDayCount() {
+        return dayCount;
+    }
+
+    public static void setDayCount(int dayCount) {
+        Farming.dayCount = dayCount;
+    }
+
+    public static int getMaxWaterLvel() {
+        return maxWaterLvel;
+    }
+
+    public static void setMaxWaterLvel(int maxWaterLvel) {
+        Farming.maxWaterLvel = maxWaterLvel;
+    }
+
+    public static String getState(int index) {
+        return states[index];
+    }
+
+    public static boolean isIuiCheck() {
+        return iuiCheck;
+    }
+
+    public static void setIuiCheck(boolean iuiCheck) {
+        Farming.iuiCheck = iuiCheck;
+    }
+
+    public static int getDay() {
+        return day;
+    }
+
+    public static void setDay() {
+        Farming.day += 1;
     }
 
     public static String getSelectedSeason() {
@@ -81,7 +138,7 @@ public class Farming extends Application {
         price = aPrice;
     }
 
-    public static boolean isInventoryCheck() {
+    public static boolean getInventoryCheck() {
         return inventoryCheck;
     }
 
@@ -129,6 +186,14 @@ public class Farming extends Application {
         selectedSeed = aSelectedSeed;
     }
 
+    public static int getWellCapacity() {
+        return wellCapacity;
+    }
+
+    public static void setWellCapacity(int aWellCapacity) {
+        wellCapacity = aWellCapacity;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("welcome_screen.fxml"));
@@ -137,18 +202,17 @@ public class Farming extends Application {
         primaryStage.show();
     }
 
-    
     public static void fillItems() {
-        items.addAll(new Item("Compost", pricingFactor * (5 + TAX)),
-                new Item("Sickle", pricingFactor * (10 + TAX)),
-                new Item("Scare Crow", pricingFactor * (300 + TAX)),
-                new Item("Wagon", pricingFactor * (500 + TAX)),
-                new Item("Fence", pricingFactor * (50 + TAX)));
-        seed.addAll(new Seed(pricingFactor * (4 + TAX), "Potato"),
-                new Seed(pricingFactor * (5 + TAX), "Onion"),
-                new Seed(pricingFactor * (7 + TAX), "Cabbage"),
-                new Seed(pricingFactor * (2 + TAX), "Wheat"),
-                new Seed(pricingFactor * (3 + TAX), "Corn"),
-                new Seed(pricingFactor * (2 + TAX), "Rice"));
+        items.addAll(new Item("Compost", pricingFactor * (5 + tax)),
+                new Item("Sickle", pricingFactor * (10 + tax)),
+                new Item("Scare Crow", pricingFactor * (300 + tax)),
+                new Item("Wagon", pricingFactor * (500 + tax)),
+                new Item("Fence", pricingFactor * (50 + tax)));
+        seed.addAll(new Seed(pricingFactor * (4 + tax), "Potato"),
+                new Seed(pricingFactor * (5 + tax), "Onion"),
+                new Seed(pricingFactor * (7 + tax), "Cabbage"),
+                new Seed(pricingFactor * (2 + tax), "Wheat"),
+                new Seed(pricingFactor * (3 + tax), "Corn"),
+                new Seed(pricingFactor * (2 + tax), "Rice"));
     }
 }

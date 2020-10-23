@@ -6,6 +6,7 @@
 package view;
 
 import static view.MarketController.fill;
+import static model.Inventory.crops;
 import model.Crop;
 import model.Inventory;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author Sheikh Munim
+ * @author Sheikh Munim Riddhi
  */
 public class InventoryController implements Initializable {
 
@@ -41,12 +42,17 @@ public class InventoryController implements Initializable {
     @FXML
     private TableColumn<String, Crop> number;
     @FXML
+    private TableColumn<String, Crop> iType;
+    @FXML
     private ListView<String> seedsTable;
     @FXML
     private ListView<String> itemsTable;
+
     @FXML
     private Label capacity;
-    static ObservableList<Crop> cropCist = FXCollections.observableArrayList();
+
+    //    private static String seedToFarm;
+    static ObservableList<Crop> cropList = FXCollections.observableArrayList();
     static ObservableList<String> seed = FXCollections.observableArrayList();
     static ObservableList<String> items = FXCollections.observableArrayList();
 
@@ -54,11 +60,8 @@ public class InventoryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         capacity.setText(capacity.getText() + " " + (Inventory.getTotal()
                 - Inventory.getCapacity()) + "/" + Inventory.getTotal());
+        removeAllItemsFromCropList();
         fillInventory();
-        if (Farming.isMarketCheck()) {
-            fill();
-            Farming.setMarketCheck(false);
-        }
     }
 
     @FXML
@@ -70,18 +73,33 @@ public class InventoryController implements Initializable {
         window.show();
     }
 
+    @FXML
+    private void select(ActionEvent event) {
+        // get selceted crop from table
+        Crop seleceted = harvestedCrops.getSelectionModel().getSelectedItem();
+        if(seleceted.getType().equalsIgnoreCase("Item")){
+            return;
+        }
+        // store seed name
+        Inventory.setSeedToFarm(seleceted.getName());
+        // store seed qty
+        Farming.setSelectedSeed(seleceted.getName());
+        Inventory.setQty(seleceted.getQuantity());
+    }
+
     private void fillInventory() {
         if (Farming.isInventoryCheck2()) {
             items.addAll("Compost", "Sickle", "Scare Crow", "Wagon", "Fence");
             Farming.setInventoryCheck2(false);
         }
-        if (Farming.isInventoryCheck()) {
+        if (Farming.getInventoryCheck()) {
             fillList();
             Farming.setInventoryCheck(false);
         }
         crop.setCellValueFactory(new PropertyValueFactory<>("name"));
         number.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        harvestedCrops.setItems(Inventory.crops);
+        iType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        harvestedCrops.setItems(crops);
         seedsTable.setItems(seed);
         itemsTable.setItems(items);
     }
@@ -93,4 +111,22 @@ public class InventoryController implements Initializable {
         });
     }
 
+    void fillCropList() {
+        //        cropList.clear();
+        crops.forEach(x -> {
+            cropList.add(new Crop(x.getName(), x.getQuantity()));
+        });
+    }
+
+    void removeAllItemsFromCropList() {
+        if (crops.size() == 1) {
+            return;
+        }
+        for (int i = 0; i < crops.size(); i++) {
+            if (crops.get(i).getQuantity() == 0) {
+                System.out.println(crops.get(i).getQuantity());
+                crops.remove(crops.get(i));
+            }
+        }
+    }
 }

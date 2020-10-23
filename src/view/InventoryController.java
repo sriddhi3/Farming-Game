@@ -5,7 +5,7 @@
  */
 package view;
 
-import static view.MarketController.fill;
+//import static view.MarketController.fill;
 import static model.Inventory.crops;
 import model.Crop;
 import model.Inventory;
@@ -58,7 +58,8 @@ public class InventoryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        capacity.setText(capacity.getText() + " " + (Inventory.getTotal() - Inventory.getCapacity()) + "/" + Inventory.getTotal());
+        capacity.setText(capacity.getText() + " " + (Inventory.getTotal()
+                - Inventory.getCapacity()) + "/" + Inventory.getTotal());
         removeAllItemsFromCropList();
         fillInventory();
     }
@@ -76,7 +77,7 @@ public class InventoryController implements Initializable {
     private void select(ActionEvent event) {
         // get selceted crop from table
         Crop seleceted = harvestedCrops.getSelectionModel().getSelectedItem();
-        if(seleceted.getType().equalsIgnoreCase("Item")){
+        if (seleceted.getType().equalsIgnoreCase("Item")) {
             return;
         }
         // store seed name

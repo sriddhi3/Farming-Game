@@ -64,7 +64,7 @@
             <Font name="Bell MT" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="458.0" layoutY="562.0" mnemonicParsing="false" onAction="#date" text="Increae Date" />
+      <Button layoutX="458.0" layoutY="562.0" mnemonicParsing="false" onAction="#date" text="Next Day" />
       <Label fx:id="lb00" layoutX="14.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
       <Label fx:id="lb01" layoutX="125.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
       <Label fx:id="lb02" layoutX="237.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />

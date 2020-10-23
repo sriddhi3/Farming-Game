@@ -170,7 +170,7 @@ public class InitialUiController implements Initializable {
         //        try {
         //            Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
         //        } catch (IndexOutOfBoundsException ex) {
-        ////                Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
+        ////     Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
         //        }
         colors[i][j] = 1;
     }
@@ -223,10 +223,10 @@ public class InitialUiController implements Initializable {
         //            Inventory.setCapacity(Inventory.getCapacity() - 1);
         //            try {
         //                if (!isDead(box00)) {
-        //                    Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
+        //            Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
         //                }
         //            } catch (IndexOutOfBoundsException ex) {
-        ////                Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
+        ////          Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
         //            }
         //            box00.setFill(javafx.scene.paint.Color.web(emptyField));
         //
@@ -277,7 +277,7 @@ public class InitialUiController implements Initializable {
         //            wvalue01.setText("0");
         //            Inventory.setCapacity(Inventory.getCapacity() - 1);
         //            if (!isDead(box01)) {
-        //                Inventory.seeds.get(0).setQuantity(Inventory.seeds.get(0).getQuantity() + 1);
+        //            Inventory.seeds.get(0).setQuantity(Inventory.seeds.get(0).getQuantity() + 1);
         //            }
         //            box01.setFill(javafx.scene.paint.Color.web(emptyField));
         //
@@ -556,10 +556,10 @@ public class InitialUiController implements Initializable {
         //        addCropToInventory(i, j, lb.getText());
     }
 
-    void incCapacity(){
+    void incCapacity() {
         Inventory.setCapacity(Inventory.getCapacity() + 1);
     }
-    void decCapacity(){
+    void decCapacity() {
         Inventory.setCapacity(Inventory.getCapacity() - 1);
     }
     void addCropToInventory(int i, int j, String cropName) {
@@ -649,8 +649,8 @@ public class InitialUiController implements Initializable {
         }
         switch (randomColor) {
         case 1:
-        //                lb01.setText("empty");
-        //                wvalue01.setText("0");
+            //                lb01.setText("empty");
+            //                wvalue01.setText("0");
             Farming.farm.crops[0][1].setQuantity(0);
             box01.setFill(javafx.scene.paint.Color.web(emptyField));
             Farming.farm.crops[0][1].setName(Farming.getState(0));
@@ -685,8 +685,8 @@ public class InitialUiController implements Initializable {
         }
         switch (randomColor) {
         case 1:
-        //                lb02.setText("empty");
-        //                wvalue02.setText("0");
+            //                lb02.setText("empty");
+            //                wvalue02.setText("0");
             Farming.farm.crops[0][2].setQuantity(0);
             box02.setFill(javafx.scene.paint.Color.web(emptyField));
             Farming.farm.crops[0][2].setName(Farming.getState(0));
@@ -1197,7 +1197,7 @@ public class InitialUiController implements Initializable {
             for (int j = 0; j < 4; j++) {
                 System.out.print(Crop.getState(Farming.farm.crops[i][j].getState()));
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 
@@ -1220,10 +1220,11 @@ public class InitialUiController implements Initializable {
 
     void updateFarmStates() {
         String c = "";
-        Rectangle rec = null;
-        Label lb = null;
+        Rectangle rec;
+        Label lb;
         ////////////////////////////
-        int i = 0, j = 0;
+        int i = 0;
+        int j = 0;
         rec = box00;
         lb = wvalue00;
         changeColor(rec, lb, i, j);
@@ -1343,14 +1344,14 @@ public class InitialUiController implements Initializable {
 
     String upgradeFarm(String state, int i, int j) {
         switch (state) {
-            case seedField:
-                colors[i][j] += 1;
-                return immatureField;
-            case immatureField:
-                colors[i][j] += 1;
-                return matureField;
-            default:
-                return state;
+        case seedField:
+            colors[i][j] += 1;
+            return immatureField;
+        case immatureField:
+            colors[i][j] += 1;
+            return matureField;
+        default:
+            return state;
 
         }
     }
@@ -1372,17 +1373,20 @@ public class InitialUiController implements Initializable {
             return;
         }
         switch (y) {
-            case "min":
-                if (Farming.farm.crops[a][b].getQuantity() < 0) {
-                    rec.setFill(javafx.scene.paint.Color.web(deadFied));
-                    colors[a][b] = 5;
-                }
-                break;
-            case "max":
-                if (Farming.farm.crops[a][b].getQuantity() > maxWaterLimit) {
-                    rec.setFill(javafx.scene.paint.Color.web(deadFied));
-                    colors[a][b] = 5;
-                }
+        case "min":
+            if (Farming.farm.crops[a][b].getQuantity() < 0) {
+                rec.setFill(javafx.scene.paint.Color.web(deadFied));
+                colors[a][b] = 5;
+            }
+            break;
+        case "max":
+            if (Farming.farm.crops[a][b].getQuantity() > maxWaterLimit) {
+                rec.setFill(javafx.scene.paint.Color.web(deadFied));
+                colors[a][b] = 5;
+            }
+            break;
+        default:
+            break;
 
         }
 
@@ -1397,7 +1401,8 @@ public class InitialUiController implements Initializable {
     private void btn00(ActionEvent event) {
         Rectangle rec = box00;
         Label wlevel = wvalue00;
-        int x = 0, y = 0;
+        int x = 0;
+        int y = 0;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1415,7 +1420,8 @@ public class InitialUiController implements Initializable {
     private void btn01(ActionEvent event) {
         Rectangle rec = box01;
         Label wlevel = wvalue01;
-        int x = 0, y = 1;
+        int x = 0;
+        int y = 1;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1433,7 +1439,8 @@ public class InitialUiController implements Initializable {
     private void btn02(ActionEvent event) {
         Rectangle rec = box02;
         Label wlevel = wvalue02;
-        int x = 0, y = 2;
+        int x = 0;
+        int y = 2;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1451,7 +1458,8 @@ public class InitialUiController implements Initializable {
     private void btn03(ActionEvent event) {
         Rectangle rec = box03;
         Label wlevel = wvalue03;
-        int x = 0, y = 3;
+        int x = 0;
+        int y = 3;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1469,7 +1477,8 @@ public class InitialUiController implements Initializable {
     private void btn10(ActionEvent event) {
         Rectangle rec = box10;
         Label wlevel = wvalue10;
-        int x = 1, y = 0;
+        int x = 1;
+        int y = 0;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1487,7 +1496,8 @@ public class InitialUiController implements Initializable {
     private void btn11(ActionEvent event) {
         Rectangle rec = box11;
         Label wlevel = wvalue11;
-        int x = 1, y = 1;
+        int x = 1;
+        int y = 1;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1505,7 +1515,8 @@ public class InitialUiController implements Initializable {
     private void btn12(ActionEvent event) {
         Rectangle rec = box12;
         Label wlevel = wvalue12;
-        int x = 1, y = 2;
+        int x = 1;
+        int y = 2;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1523,7 +1534,8 @@ public class InitialUiController implements Initializable {
     private void btn13(ActionEvent event) {
         Rectangle rec = box13;
         Label wlevel = wvalue13;
-        int x = 1, y = 3;
+        int x = 1;
+        int y = 3;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1541,7 +1553,8 @@ public class InitialUiController implements Initializable {
     private void btn20(ActionEvent event) {
         Rectangle rec = box20;
         Label wlevel = wvalue20;
-        int x = 2, y = 0;
+        int x = 2;
+        int y = 0;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1559,7 +1572,8 @@ public class InitialUiController implements Initializable {
     private void btn21(ActionEvent event) {
         Rectangle rec = box21;
         Label wlevel = wvalue21;
-        int x = 2, y = 1;
+        int x = 2;
+        int y = 1;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1577,7 +1591,8 @@ public class InitialUiController implements Initializable {
     private void btn22(ActionEvent event) {
         Rectangle rec = box22;
         Label wlevel = wvalue22;
-        int x = 2, y = 2;
+        int x = 2;
+        int y = 2;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1595,7 +1610,8 @@ public class InitialUiController implements Initializable {
     private void btn23(ActionEvent event) {
         Rectangle rec = box23;
         Label wlevel = wvalue23;
-        int x = 2, y = 3;
+        int x = 2;
+        int y = 3;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1613,7 +1629,8 @@ public class InitialUiController implements Initializable {
     private void btn30(ActionEvent event) {
         Rectangle rec = box30;
         Label wlevel = wvalue30;
-        int x = 3, y = 0;
+        int x = 3;
+        int y = 0;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1631,7 +1648,8 @@ public class InitialUiController implements Initializable {
     private void btn31(ActionEvent event) {
         Rectangle rec = box31;
         Label wlevel = wvalue31;
-        int x = 3, y = 1;
+        int x = 3;
+        int y = 1;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1649,7 +1667,8 @@ public class InitialUiController implements Initializable {
     private void btn32(ActionEvent event) {
         Rectangle rec = box32;
         Label wlevel = wvalue32;
-        int x = 3, y = 2;
+        int x = 3;
+        int y = 2;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1667,7 +1686,8 @@ public class InitialUiController implements Initializable {
     private void btn33(ActionEvent event) {
         Rectangle rec = box33;
         Label wlevel = wvalue33;
-        int x = 3, y = 3;
+        int x = 3;
+        int y = 3;
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }

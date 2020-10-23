@@ -90,18 +90,18 @@ public class Crop {
 
     public static String getState(int index) {
         switch (index) {
-            case 0:
-                return "empty";
-            case 1:
-                return "seed";
-            case 2:
-                return "immature";
-            case 3:
-                return "mature";
-            case 4:
-                return "dead";
-            default:
-                return null;
+        case 0:
+            return "empty";
+        case 1:
+            return "seed";
+        case 2:
+            return "immature";
+        case 3:
+            return "mature";
+        case 4:
+            return "dead";
+        default:
+            return null;
         }
     }
 

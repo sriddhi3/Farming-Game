@@ -63,8 +63,8 @@ public class MarketController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url url
+     * @param rb rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -118,7 +118,7 @@ public class MarketController implements Initializable {
                 }
                 int updateCap = Inventory.getCapacity() - Integer.parseInt(q);
                 Inventory.setCapacity(updateCap);
-                //                Inventory.setCapacity(Inventory.getCapacity() + Integer.parseInt(q));
+                //Inventory.setCapacity(Inventory.getCapacity() + Integer.parseInt(q));
                 Farming.setTotalMoney(Farming.getTotalMoney() - itemPrice * Integer.parseInt(q));
                 money.setText("Money: " + Farming.getTotalMoney());
                 capacity.setText("Capacity: " + (Inventory.getTotal()
@@ -177,7 +177,7 @@ public class MarketController implements Initializable {
 
     void inventory() {
         if (Farming.isMarketCheck()) {
-        //            fill();
+            //            fill();
             Farming.setMarketCheck(false);
         }
         iItem.setCellValueFactory(new PropertyValueFactory<>("name"));

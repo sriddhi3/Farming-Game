@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package view;
-import model.Crop;
-import static model.Inventory.crops;
+//import model.Crop;
+//import static model.Inventory.crops;
 import model.Inventory;
 import model.Seed;
 import java.io.IOException;
@@ -77,9 +77,9 @@ public class ConfigScreenController implements Initializable {
 
     }
 
-    void fillFarmData(){
-        for(int i = 0; i < 4; i++){
-            for(int j = 0; j < 4; j++){
+    void fillFarmData() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 Farming.farm.crops[i][j].setName(Farming.getSelectedSeed());
                 Farming.farm.crops[i][j].setQuantity(1);
             }
@@ -91,9 +91,7 @@ public class ConfigScreenController implements Initializable {
         if (!name.getText().equals("")) {
             if (seasonCheck) {
                 if (seedCheck) {
-                    if (dificultyCheck) {
-
-                    } else {
+                    if (!dificultyCheck) {
                         JOptionPane.showMessageDialog(null, "Select a difficulty first");
                         return;
                     }

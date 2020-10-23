@@ -58,7 +58,7 @@ public class Inventory {
             }
         });
     }
-    public static void addCrop(Crop crop){
+    public static void addCrop(Crop crop) {
         crops.add(crop);
     }
 

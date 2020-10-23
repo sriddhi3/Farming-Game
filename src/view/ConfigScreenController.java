@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package view;
-
+import model.Crop;
+import static model.Inventory.crops;
 import model.Inventory;
 import model.Seed;
 import java.io.IOException;
@@ -26,7 +27,7 @@ import javax.swing.JOptionPane;
 /**
  * FXML Controller class
  *
- * @author Sheikh Munim
+ * @author Sheikh Munim Riddhi
  */
 public class ConfigScreenController implements Initializable {
 
@@ -66,7 +67,7 @@ public class ConfigScreenController implements Initializable {
     private boolean seedCheck = false;
     private boolean dificultyCheck = false;
     @FXML
-    private RadioButton onion;
+    private RadioButton Onion;
 
     /**
      * Initializes the controller class.
@@ -76,13 +77,23 @@ public class ConfigScreenController implements Initializable {
 
     }
 
+    void fillFarmData(){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                Farming.farm.crops[i][j].setName(Farming.getSelectedSeed());
+                Farming.farm.crops[i][j].setQuantity(1);
+            }
+        }
+    }
     @FXML
     private void next(ActionEvent event) throws IOException {
         Farming.setPlayerName(name.getText());
         if (!name.getText().equals("")) {
             if (seasonCheck) {
                 if (seedCheck) {
-                    if (!dificultyCheck) {
+                    if (dificultyCheck) {
+
+                    } else {
                         JOptionPane.showMessageDialog(null, "Select a difficulty first");
                         return;
                     }
@@ -99,6 +110,8 @@ public class ConfigScreenController implements Initializable {
             return;
         }
         Farming.fillItems();
+        fillFarmData();
+        //        crops.add(new Crop(Farming.getSelectedSeed(), , 0));
         Parent tableView = FXMLLoader.load(getClass().getResource("initial_UI.fxml"));
         Scene tableViewscene = new Scene(tableView);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -108,34 +121,40 @@ public class ConfigScreenController implements Initializable {
 
     @FXML
     private void easy(ActionEvent event) {
-        //        Farming.selectedDifficulty = "easy";
         Farming.setSelectedDifficulty("easy");
         Farming.setTotalMoney(300);
         Farming.setPricingFactor(1);
         Inventory.setCapacity(30);
         Inventory.setTotal(30);
+        Farming.farm.setTotalWater(30);
+        Farming.setMaxWaterLvel(8);
+        Farming.setDayCount(1);
         dificultyCheck = true;
     }
 
     @FXML
     private void medium(ActionEvent event) {
-        //        Farming.selectedDifficulty = "medium";
         Farming.setSelectedDifficulty("medium");
         Farming.setTotalMoney(200);
         Farming.setPricingFactor(2);
         Inventory.setCapacity(30);
         Inventory.setTotal(30);
+        Farming.farm.setTotalWater(20);
+        Farming.setMaxWaterLvel(6);
+        Farming.setDayCount(1);
         dificultyCheck = true;
     }
 
     @FXML
     private void hard(ActionEvent event) {
-        //        Farming.selectedDifficulty = "hard";
         Farming.setSelectedDifficulty("hard");
         Farming.setTotalMoney(100);
         Farming.setPricingFactor(3);
         Inventory.setCapacity(30);
         Inventory.setTotal(30);
+        Farming.farm.setTotalWater(10);
+        Farming.setMaxWaterLvel(4);
+        Farming.setDayCount(1);
         dificultyCheck = true;
     }
 
@@ -188,7 +207,7 @@ public class ConfigScreenController implements Initializable {
     private void cabbage(ActionEvent event) {
         //        Farming.selectedSeed = "cabbage";
         Farming.setSelectedSeed("cabbage");
-        Farming.getInventory().seeds.add(new Seed(0, "Cabbage"));
+        Inventory.seeds.add(new Seed(0, "Cabbage"));
         Farming.setPrice(7);
         seedCheck = true;
 

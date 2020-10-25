@@ -16,4 +16,5 @@ public class SeedTest {
     public void getName() {
         assertEquals("test seed", seed.getName());
     }
+    //new tests
 }

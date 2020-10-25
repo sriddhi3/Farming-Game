@@ -22,4 +22,5 @@ public class InventoryTest {
         assertNotNull(inventory.seeds);
         assertNotNull(inventory.crops);
     }
+    //new tests
 }

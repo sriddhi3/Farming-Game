@@ -25,7 +25,6 @@ import javafx.stage.Stage;
  */
 public class WelcomeScreenController implements Initializable {
 
-
     /**
      * Initializes the controller class.
      */

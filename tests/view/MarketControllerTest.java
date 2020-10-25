@@ -10,8 +10,7 @@ public class MarketControllerTest {
     private MarketController marketController = new MarketController();
 
     @Test
-    public void initialize(URL url, ResourceBundle rb) {
-        marketController.initialize(url, rb);
+    public void initialize() {
         assertNotNull(marketController);
     }
 }

@@ -1,10 +1,10 @@
 
-package model;
+package Model;
 
 public class Seed {
     private int quantity;
     private String name;
-    //    price
+//    price
 
     public Seed(int quantity, String name) {
         this.quantity = quantity;

@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,11 +12,44 @@ public class Inventory {
     private static int total;
     private static String seedToFarm = "";
     private static int qty; // quantity of the seed
+    private static int fertilize;
 
     public Inventory() {
         seeds = FXCollections.observableArrayList();
         crops = FXCollections.observableArrayList();
         crops = FXCollections.observableArrayList();
+    }
+
+    public static ObservableList<Seed> getSeeds() {
+        return seeds;
+    }
+
+    public static void setSeeds(ObservableList<Seed> seeds) {
+        Inventory.seeds = seeds;
+    }
+
+    public static ObservableList<Crop> getCrops() {
+        return crops;
+    }
+
+    public static void setCrops(ObservableList<Crop> crops) {
+        Inventory.crops = crops;
+    }
+
+    public static ObservableList<Item> getItems() {
+        return items;
+    }
+
+    public static void setItems(ObservableList<Item> items) {
+        Inventory.items = items;
+    }
+
+    public static int getFertilize() {
+        return fertilize;
+    }
+
+    public static void setFertilize(int fertilize) {
+        Inventory.fertilize = fertilize;
     }
 
     public static int getQty() {
@@ -58,8 +91,20 @@ public class Inventory {
             }
         });
     }
+
     public static void addCrop(Crop crop) {
         crops.add(crop);
+    }
+    
+    public static void incFertilze(){
+        fertilize++;
+    }
+    
+    public static void decFertelize(){
+        if(fertilize < 1){
+            return;
+        }
+        fertilize--;
     }
 
 }

@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
-//import model.Crop;
-//import static model.Inventory.crops;
-import model.Inventory;
-import model.Seed;
+package View;
+import static View.Farming.setfPrice;
+import Model.Inventory;
+import Model.Seed;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +26,7 @@ import javax.swing.JOptionPane;
 /**
  * FXML Controller class
  *
- * @author Sheikh Munim Riddhi
+ * @author Sardar Tariq Khan
  */
 public class ConfigScreenController implements Initializable {
 
@@ -77,9 +76,9 @@ public class ConfigScreenController implements Initializable {
 
     }
 
-    void fillFarmData() {
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+    void fillFarmData(){
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
                 Farming.farm.crops[i][j].setName(Farming.getSelectedSeed());
                 Farming.farm.crops[i][j].setQuantity(1);
             }
@@ -91,7 +90,9 @@ public class ConfigScreenController implements Initializable {
         if (!name.getText().equals("")) {
             if (seasonCheck) {
                 if (seedCheck) {
-                    if (!dificultyCheck) {
+                    if (dificultyCheck) {
+
+                    } else {
                         JOptionPane.showMessageDialog(null, "Select a difficulty first");
                         return;
                     }
@@ -109,7 +110,7 @@ public class ConfigScreenController implements Initializable {
         }
         Farming.fillItems();
         fillFarmData();
-        //        crops.add(new Crop(Farming.getSelectedSeed(), , 0));
+//        crops.add(new Crop(Farming.getSelectedSeed(), , 0));
         Parent tableView = FXMLLoader.load(getClass().getResource("initial_UI.fxml"));
         Scene tableViewscene = new Scene(tableView);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -127,6 +128,7 @@ public class ConfigScreenController implements Initializable {
         Farming.farm.setTotalWater(30);
         Farming.setMaxWaterLvel(8);
         Farming.setDayCount(1);
+        setfPrice(10);
         dificultyCheck = true;
     }
 
@@ -140,6 +142,7 @@ public class ConfigScreenController implements Initializable {
         Farming.farm.setTotalWater(20);
         Farming.setMaxWaterLvel(6);
         Farming.setDayCount(1);
+        setfPrice(20);
         dificultyCheck = true;
     }
 
@@ -153,12 +156,13 @@ public class ConfigScreenController implements Initializable {
         Farming.farm.setTotalWater(10);
         Farming.setMaxWaterLvel(4);
         Farming.setDayCount(1);
+        setfPrice(30);
         dificultyCheck = true;
     }
 
     @FXML
     private void wheat(ActionEvent event) {
-        //        Farming.selectedSeed = "wheat";
+//        Farming.selectedSeed = "wheat";
         Farming.setSelectedSeed("wheat");
         Inventory.seeds.add(new Seed(0, "Wheat"));
         Farming.setPrice(2);
@@ -167,7 +171,7 @@ public class ConfigScreenController implements Initializable {
 
     @FXML
     private void rice(ActionEvent event) {
-        //        Farming.selectedSeed = "rice";
+//        Farming.selectedSeed = "rice";
         Farming.setSelectedSeed("rice");
         Inventory.seeds.add(new Seed(0, "Rice"));
         Farming.setPrice(2);
@@ -176,7 +180,7 @@ public class ConfigScreenController implements Initializable {
 
     @FXML
     private void corn(ActionEvent event) {
-        //        Farming.selectedSeed = "corn";
+//        Farming.selectedSeed = "corn";
         Farming.setSelectedSeed("corn");
         Inventory.seeds.add(new Seed(0, "Corn"));
         Farming.setPrice(3);
@@ -185,7 +189,7 @@ public class ConfigScreenController implements Initializable {
 
     @FXML
     private void potato(ActionEvent event) {
-        //        Farming.selectedSeed = "potato";
+//        Farming.selectedSeed = "potato";
         Farming.setSelectedSeed("potato");
         Inventory.seeds.add(new Seed(0, "potato"));
         Farming.setPricingFactor(4);
@@ -194,7 +198,7 @@ public class ConfigScreenController implements Initializable {
 
     @FXML
     private void onion(ActionEvent event) {
-        //        Farming.selectedSeed = "onion";
+//        Farming.selectedSeed = "onion";
         Farming.setSelectedSeed("onion");
         Inventory.seeds.add(new Seed(0, "Onion"));
         Farming.setPrice(5);
@@ -203,7 +207,7 @@ public class ConfigScreenController implements Initializable {
 
     @FXML
     private void cabbage(ActionEvent event) {
-        //        Farming.selectedSeed = "cabbage";
+//        Farming.selectedSeed = "cabbage";
         Farming.setSelectedSeed("cabbage");
         Inventory.seeds.add(new Seed(0, "Cabbage"));
         Farming.setPrice(7);

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MarketController">
+<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MarketController">
    <children>
       <TableView fx:id="inventoryTable" layoutX="14.0" layoutY="90.0" prefHeight="439.0" prefWidth="390.0">
         <columns>
@@ -40,12 +40,12 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="382.0" layoutY="539.0" mnemonicParsing="false" onAction="#sell" prefHeight="35.0" prefWidth="85.0" text="Sell">
+      <Button layoutX="325.0" layoutY="539.0" mnemonicParsing="false" onAction="#sell" prefHeight="35.0" prefWidth="85.0" text="Sell">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="474.0" layoutY="539.0" mnemonicParsing="false" onAction="#buy" prefHeight="35.0" prefWidth="85.0" text="Buy">
+      <Button layoutX="417.0" layoutY="539.0" mnemonicParsing="false" onAction="#buy" prefHeight="35.0" prefWidth="85.0" text="Buy">
          <font>
             <Font size="18.0" />
          </font>
@@ -55,7 +55,7 @@
             <Font name="Bell MT Bold" size="19.0" />
          </font>
       </Label>
-      <Button layoutX="290.0" layoutY="539.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="85.0" text="Back">
+      <Button layoutX="233.0" layoutY="539.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="85.0" text="Back">
          <font>
             <Font size="18.0" />
          </font>
@@ -80,6 +80,11 @@
       <Button layoutX="478.0" layoutY="539.0" mnemonicParsing="false" onAction="#update" prefHeight="35.0" prefWidth="85.0" text="Update" visible="false">
          <font>
             <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="513.0" layoutY="538.0" mnemonicParsing="false" onAction="#fer" prefHeight="39.0" prefWidth="85.0" text="Fertilizer">
+         <font>
+            <Font size="15.0" />
          </font>
       </Button>
    </children>

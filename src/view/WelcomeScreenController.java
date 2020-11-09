@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,15 +15,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-//import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author Sheikh Munim Riddhi
+ * @author Sardar Tariq Khan
  */
 public class WelcomeScreenController implements Initializable {
+
 
     /**
      * Initializes the controller class.

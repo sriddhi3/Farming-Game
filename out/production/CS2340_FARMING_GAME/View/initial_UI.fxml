@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="601.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.InitialUiController">
+<AnchorPane prefHeight="601.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.InitialUiController">
    <children>
       <Label fx:id="money" layoutX="14.0" layoutY="568.0" prefHeight="25.0" prefWidth="94.0" text="Money: 100">
          <font>
@@ -64,7 +64,7 @@
             <Font name="Bell MT" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="458.0" layoutY="562.0" mnemonicParsing="false" onAction="#date" text="Next Day" />
+      <Button layoutX="458.0" layoutY="562.0" mnemonicParsing="false" onAction="#date" text="Increae Date" />
       <Label fx:id="lb00" layoutX="14.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
       <Label fx:id="lb01" layoutX="125.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
       <Label fx:id="lb02" layoutX="237.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
@@ -82,37 +82,37 @@
       <Label fx:id="lb32" layoutX="235.0" layoutY="392.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
       <Label fx:id="lb33" layoutX="346.0" layoutY="392.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
       <Label fx:id="wvalue00" layoutX="16.0" layoutY="167.0" prefHeight="17.0" prefWidth="34.0" text="1" />
-      <Button layoutX="14.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn00" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="15.0" layoutY="199.0" mnemonicParsing="false" onAction="#btn00" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue01" layoutX="127.0" layoutY="166.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="125.0" layoutY="185.0" mnemonicParsing="false" onAction="#btn01" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="125.0" layoutY="199.0" mnemonicParsing="false" onAction="#btn01" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue02" layoutX="237.0" layoutY="167.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="235.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn02" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="232.0" layoutY="199.0" mnemonicParsing="false" onAction="#btn02" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue03" layoutX="348.0" layoutY="167.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="346.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn03" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="343.0" layoutY="199.0" mnemonicParsing="false" onAction="#btn03" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue10" layoutX="15.0" layoutY="247.0" prefHeight="17.0" prefWidth="54.0" text="1" />
-      <Button layoutX="13.0" layoutY="266.0" mnemonicParsing="false" onAction="#btn10" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="12.0" layoutY="282.0" mnemonicParsing="false" onAction="#btn10" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue11" layoutX="127.0" layoutY="244.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="125.0" layoutY="263.0" mnemonicParsing="false" onAction="#btn11" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="123.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn11" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue12" layoutX="237.0" layoutY="242.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="235.0" layoutY="261.0" mnemonicParsing="false" onAction="#btn12" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="233.0" layoutY="281.0" mnemonicParsing="false" onAction="#btn12" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue13" layoutX="348.0" layoutY="248.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="346.0" layoutY="267.0" mnemonicParsing="false" onAction="#btn13" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="345.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn13" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue20" layoutX="17.0" layoutY="329.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="15.0" layoutY="348.0" mnemonicParsing="false" onAction="#btn20" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="13.0" layoutY="364.0" mnemonicParsing="false" onAction="#btn20" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue21" layoutX="127.0" layoutY="326.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="125.0" layoutY="345.0" mnemonicParsing="false" onAction="#btn21" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="124.0" layoutY="364.0" mnemonicParsing="false" onAction="#btn21" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue22" layoutX="237.0" layoutY="326.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="235.0" layoutY="345.0" mnemonicParsing="false" onAction="#btn22" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="235.0" layoutY="364.0" mnemonicParsing="false" onAction="#btn22" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue23" layoutX="348.0" layoutY="323.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="346.0" layoutY="342.0" mnemonicParsing="false" onAction="#btn23" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="345.0" layoutY="363.0" mnemonicParsing="false" onAction="#btn23" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue30" layoutX="15.0" layoutY="410.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="13.0" layoutY="429.0" mnemonicParsing="false" onAction="#btn30" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="13.0" layoutY="445.0" mnemonicParsing="false" onAction="#btn30" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue31" layoutX="127.0" layoutY="410.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="125.0" layoutY="429.0" mnemonicParsing="false" onAction="#btn31" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="124.0" layoutY="443.0" mnemonicParsing="false" onAction="#btn31" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue32" layoutX="237.0" layoutY="410.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="235.0" layoutY="429.0" mnemonicParsing="false" onAction="#btn32" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="235.0" layoutY="443.0" mnemonicParsing="false" onAction="#btn32" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Label fx:id="wvalue33" layoutX="348.0" layoutY="410.0" prefHeight="17.0" prefWidth="43.0" text="1" />
-      <Button layoutX="346.0" layoutY="429.0" mnemonicParsing="false" onAction="#btn33" prefHeight="17.0" prefWidth="54.0" text="water" />
+      <Button layoutX="345.0" layoutY="443.0" mnemonicParsing="false" onAction="#btn33" prefHeight="25.0" prefWidth="28.0" text="W" />
       <Separator layoutX="70.0" layoutY="150.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" />
       <Separator layoutX="179.0" layoutY="150.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" />
       <Separator layoutX="289.0" layoutY="149.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" />
@@ -136,5 +136,39 @@
          </font></Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#303c19cc" height="18.0" layoutX="106.0" layoutY="41.0" stroke="BLACK" strokeType="INSIDE" width="22.0" />
       <Label layoutX="149.0" layoutY="41.0" prefHeight="18.0" prefWidth="43.0" text="Dead" />
+      <Button fx:id="pestiside" layoutX="530.0" layoutY="178.0" mnemonicParsing="false" onAction="#pestiside" style="-fx-background-color: #121212;" text="Pesticides " textFill="#bfff00" />
+      <Label fx:id="pstid" layoutX="616.0" layoutY="182.0" prefHeight="17.0" prefWidth="72.0" text="Deselected" />
+      <Label fx:id="f00" layoutX="17.0" layoutY="182.0" text="Label" />
+      <Label fx:id="f01" layoutX="128.0" layoutY="182.0" text="Label" />
+      <Label fx:id="f02" layoutX="237.0" layoutY="182.0" text="Label" />
+      <Label fx:id="f03" layoutX="348.0" layoutY="182.0" text="Label" />
+      <Label fx:id="f10" layoutX="15.0" layoutY="264.0" text="Label" />
+      <Label fx:id="f11" layoutX="126.0" layoutY="264.0" text="Label" />
+      <Label fx:id="f12" layoutX="235.0" layoutY="264.0" text="Label" />
+      <Label fx:id="f13" layoutX="346.0" layoutY="264.0" text="Label" />
+      <Label fx:id="f20" layoutX="15.0" layoutY="345.0" text="Label" />
+      <Label fx:id="f21" layoutX="126.0" layoutY="345.0" text="Label" />
+      <Label fx:id="f22" layoutX="235.0" layoutY="345.0" text="Label" />
+      <Label fx:id="f23" layoutX="346.0" layoutY="345.0" text="Label" />
+      <Label fx:id="f30" layoutX="15.0" layoutY="425.0" text="Label" />
+      <Label fx:id="f31" layoutX="126.0" layoutY="425.0" text="Label" />
+      <Label fx:id="f32" layoutX="235.0" layoutY="425.0" text="Label" />
+      <Label fx:id="f33" layoutX="346.0" layoutY="425.0" text="Label" />
+      <Button layoutX="42.0" layoutY="199.0" mnemonicParsing="false" onAction="#f00" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="151.0" layoutY="199.0" mnemonicParsing="false" onAction="#f01" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="259.0" layoutY="199.0" mnemonicParsing="false" onAction="#f02" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="370.0" layoutY="199.0" mnemonicParsing="false" onAction="#f03" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="39.0" layoutY="282.0" mnemonicParsing="false" onAction="#f10" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="151.0" layoutY="283.0" mnemonicParsing="false" onAction="#f11" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="262.0" layoutY="281.0" mnemonicParsing="false" onAction="#f12" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="373.0" layoutY="283.0" mnemonicParsing="false" onAction="#f13" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="41.0" layoutY="445.0" mnemonicParsing="false" onAction="#f30" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="151.0" layoutY="443.0" mnemonicParsing="false" onAction="#f31" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="262.0" layoutY="443.0" mnemonicParsing="false" onAction="#f32" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="372.0" layoutY="443.0" mnemonicParsing="false" onAction="#f33" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="41.0" layoutY="365.0" mnemonicParsing="false" onAction="#f20" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="152.0" layoutY="364.0" mnemonicParsing="false" onAction="#f21" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="262.0" layoutY="365.0" mnemonicParsing="false" onAction="#f22" prefHeight="25.0" prefWidth="28.0" text="F" />
+      <Button layoutX="373.0" layoutY="363.0" mnemonicParsing="false" onAction="#f23" prefHeight="25.0" prefWidth="28.0" text="F" />
    </children>
 </AnchorPane>

@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ public class FarmingTest {
     Set up max water level
      */
     @Test
-    public void setMaxWaterLevelTest () {
+    public void setMaxWaterLevelTest() {
         farming.setMaxWaterLvel(10);
         assertEquals(10, farming.getMaxWaterLvel());
     }

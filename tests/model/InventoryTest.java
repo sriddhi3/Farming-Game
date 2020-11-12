@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import org.junit.Test;
 
@@ -22,5 +22,33 @@ public class InventoryTest {
         assertNotNull(inventory.seeds);
         assertNotNull(inventory.crops);
     }
-    //new tests
+
+    /*
+    Testing fertilizer amount and level, by adding and using fertilizer
+    Buying should increase level
+    Using should decrease level
+     */
+    @Test
+    public void testFertilizerInventoryAmount() {
+        inventory.setFertilize(3);
+        assertEquals(3, inventory.getFertilize());
+    }
+
+    @Test
+    public void buyFertilizer() {
+        inventory.setFertilize(0);
+        inventory.incFertilze();
+        assertEquals(1, inventory.getFertilize());
+        inventory.incFertilze();
+        assertEquals(2, inventory.getFertilize());
+    }
+
+    @Test
+    public void useFertilizer() {
+        inventory.setFertilize(2);
+        inventory.decFertelize();
+        assertEquals(1, inventory.getFertilize());
+        inventory.decFertelize();
+        assertEquals(0, inventory.getFertilize());
+    }
 }

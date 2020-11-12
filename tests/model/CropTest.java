@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import org.junit.Test;
 
@@ -59,5 +59,72 @@ public class CropTest {
     public void testDead() {
         aliveCrop.setState(state4);
         assertEquals("dead", aliveCrop.getState(4));
+    }
+
+    /*
+    Can the player check to see if the plant is fertilized or not?
+     */
+    private Crop fertilizedCrop = new Crop("test crop fertilized", 10, 10);
+
+    @Test
+    public void testNotFertilized() {
+        assertEquals(false, fertilizedCrop.isFertilized());
+    }
+
+    @Test
+    public void checkFertilized() {
+        fertilizedCrop.setFertilized(true);
+        assertEquals(true, fertilizedCrop.isFertilized());
+    }
+
+    /*
+    Fertilizer will run out as you use it. Check level
+     */
+
+    @Test
+    public void fertilizeAmount() {
+        fertilizedCrop.setFertilizerLevel(3);
+        System.out.println(fertilizedCrop.getFertilizerLevel());
+        assertEquals(3, fertilizedCrop.getFertilizerLevel());
+    }
+
+    @Test
+    public void fertilizeDecrease() {
+        fertilizedCrop.setFertilizerLevel(3);
+
+        fertilizedCrop.decFertilizeLevel();
+        assertEquals(2, fertilizedCrop.getFertilizerLevel());
+        fertilizedCrop.decFertilizeLevel();
+        assertEquals(1, fertilizedCrop.getFertilizerLevel());
+        fertilizedCrop.decFertilizeLevel();
+        assertEquals(0, fertilizedCrop.getFertilizerLevel());
+    }
+
+    /*
+    Test pesticide on the crop
+     */
+    private Crop pesticideCrop = new Crop("test crop pesticide", 10, 10);
+
+    @Test
+    public void notPesticide() {
+        assertEquals(false, pesticideCrop.isPastiside());
+    }
+
+    @Test
+    public void hasPesticide() {
+        pesticideCrop.setPastiside(true);
+        assertEquals(true, pesticideCrop.isPastiside());
+    }
+
+    /*
+    Test pricing of crop. Pesticide should have 10 lower money than non pesticide
+     */
+    @Test
+    public void testPesticidePrice() {
+        assertEquals(0, Crop.getCropPrice("Potato", false));
+        assertEquals(-10, Crop.getCropPrice("Potato", true));
+        int priceNoPesticide = Crop.getCropPrice("Potato", false);
+        int priceWithPesticide = Crop.getCropPrice("Potato", true);
+        assertTrue(priceNoPesticide > priceWithPesticide);
     }
 }

@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Model.Crop;
-import Model.Farm;
+import model.Crop;
+import model.Farm;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,9 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import Model.Inventory;
-import Model.Item;
-import Model.Seed;
+import model.Inventory;
+import model.Item;
+import model.Seed;
 
 public class Farming extends Application {
 
@@ -26,6 +26,9 @@ public class Farming extends Application {
     private static boolean pestiside;
     private static int dayCount;
     private static int fPrice;
+    private static int hireDays;
+    private static boolean mature;
+    private static boolean hired;
     private static boolean inventoryCheck = true;
     private static boolean inventoryCheck2 = true;
     private static boolean marketCheck = true;
@@ -33,21 +36,44 @@ public class Farming extends Application {
     private static boolean iuiCheck = true;    // Initail UI check
     private static int day = 0;
     private static int totalMoney = 100;
-    private final static int tax = 2;
+    private static final int TAX = 2;
     public static ObservableList<Item> items = FXCollections.observableArrayList();
     public static ObservableList<Seed> seed = FXCollections.observableArrayList();
     public static int[][] colors = new int[4][4];
     public static Farm farm = new Farm(0, 0);
-    private static final String[] states = {"empty", "seed", "immature", "mature", "dead"};
+    private static final String[] STATES = {"empty", "seed", "immature", "mature", "dead"};
     private static Inventory inventory = new Inventory();
 
     public static void main(String[] args) {
-//        farm.crops[0][0] = new Crop();
+        //        farm.crops[0][0] = new Crop();
         initFarm();
         launch(args);
     }
 
-    
+    public static int getHireDays() {
+        return hireDays;
+    }
+
+    public static void setHireDays(int hireDays) {
+        Farming.hireDays = hireDays;
+    }
+
+    public static boolean isMature() {
+        return mature;
+    }
+
+    public static void setMature(boolean mature) {
+        Farming.mature = mature;
+    }
+
+    public static boolean isHired() {
+        return hired;
+    }
+
+    public static void setHired(boolean hired) {
+        Farming.hired = hired;
+    }
+
     private static void initFarm() {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -91,7 +117,7 @@ public class Farming extends Application {
     }
 
     public static String getState(int index) {
-        return states[index];
+        return STATES[index];
     }
 
     public static boolean isIuiCheck() {
@@ -223,20 +249,29 @@ public class Farming extends Application {
     }
 
     public static int getTax() {
-        return tax;
+        return TAX;
     }
 
     
     public static void fillItems() {
-        items.addAll(new Item("Compost", pricingFactor * (5 + tax)), new Item("Sickle", pricingFactor * (10 + tax)), new Item("Scare Crow", pricingFactor * (300 + tax)), new Item("Wagon", pricingFactor * (500 + tax)), new Item("Fence", pricingFactor * (50 + tax)));
-        seed.addAll(new Seed(pricingFactor * (4 + tax), "Potato"), new Seed(pricingFactor * (5 + tax), "Onion"), new Seed(pricingFactor * (7 + tax), "Cabbage"), new Seed(pricingFactor * (2 + tax), "Wheat"), new Seed(pricingFactor * (3 + tax), "Corn"), new Seed(pricingFactor * (2 + tax), "Rice"));
+        items.addAll(new Item("Compost", pricingFactor * (5 + TAX)),
+                new Item("Sickle", pricingFactor * (10 + TAX)),
+                new Item("Scare Crow", pricingFactor * (300 + TAX)),
+                new Item("Wagon", pricingFactor * (500 + TAX)),
+                new Item("Fence", pricingFactor * (50 + TAX)));
+        seed.addAll(new Seed(pricingFactor * (4 + TAX), "Potato"),
+                new Seed(pricingFactor * (5 + TAX), "Onion"),
+                new Seed(pricingFactor * (7 + TAX), "Cabbage"),
+                new Seed(pricingFactor * (2 + TAX), "Wheat"),
+                new Seed(pricingFactor * (3 + TAX), "Corn"),
+                new Seed(pricingFactor * (2 + TAX), "Rice"));
     }
     
-    public static void decTotalMoney(int amount){
+    public static void decTotalMoney(int amount) {
         setTotalMoney(getTotalMoney() - amount);
     }
     
-    public static void incTotalMoney(int amount){
+    public static void incTotalMoney(int amount) {
         setTotalMoney(getTotalMoney() + amount);
     }
     

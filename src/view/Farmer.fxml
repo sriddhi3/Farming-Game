@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="306.0" prefWidth="356.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FarmerController">
+   <children>
+      <Label alignment="CENTER" layoutY="7.0" prefHeight="72.0" prefWidth="330.0" text="HIRE A FARMER">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="d1" layoutX="26.0" layoutY="111.0" mnemonicParsing="false" text="1 Day">
+         <toggleGroup>
+            <ToggleGroup fx:id="days" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="d7" layoutX="139.0" layoutY="111.0" mnemonicParsing="false" text="7 Days" toggleGroup="$days" />
+      <RadioButton fx:id="d14" layoutX="245.0" layoutY="111.0" mnemonicParsing="false" text="14 Days" toggleGroup="$days" />
+      <RadioButton fx:id="matureF" layoutX="30.0" layoutY="174.0" mnemonicParsing="false" text="Professional">
+         <toggleGroup>
+            <ToggleGroup fx:id="type" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="immatureF" layoutX="131.0" layoutY="174.0" mnemonicParsing="false" text="Amateur" toggleGroup="$type" />
+      <Button layoutX="60.0" layoutY="233.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="85.0" text="Back">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="176.0" layoutY="233.0" mnemonicParsing="false" onAction="#hire" prefHeight="39.0" prefWidth="85.0" text="Hire">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

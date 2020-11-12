@@ -1,5 +1,5 @@
 
-package Model;
+package model;
 
 public class Farm {
     public Crop[][] crops;

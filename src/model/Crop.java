@@ -1,7 +1,7 @@
-package Model;
+package model;
 
-import static View.Farming.getPricingFactor;
-import static View.Farming.getTax;
+import static view.Farming.getPricingFactor;
+import static view.Farming.getTax;
 
 public class Crop {
 
@@ -123,60 +123,59 @@ public class Crop {
 
     public static String getState(int index) {
         switch (index) {
-            case 0:
-                return "empty";
-            case 1:
-                return "seed";
-            case 2:
-                return "immature";
-            case 3:
-                return "mature";
-            case 4:
-                return "dead";
-            default:
-                return null;
+        case 0:
+            return "empty";
+        case 1:
+            return "seed";
+        case 2:
+            return "immature";
+        case 3:
+            return "mature";
+        case 4:
+            return "dead";
+        default:
+            return null;
         }
     }
 
     public static int getCropPrice(String cropName, boolean pastcide) {
-        System.out.println("///" + cropName + "///");
         int price = 0;
         switch (cropName) {
-            case "Potato":
-                price = 4;
-                break;
-            case "potato":
-                price = 4;
-                break;
-            case "Onion":
-                price = 5;
-                break;
-            case "onion":
-                price = 5;
-                break;
-            case "Cabbage":
-                price = 7;
-                break;
-            case "Wheat":
-                price = 2;
-                break;
-            case "wheat":
-                price = 2;
-                break;
-            case "Corn":
-                price = 3;
-                break;
-            case "corn":
-                price = 3;
-                break;
-            case "Rice":
-                price = 2;
-                break;
-            case "rice":
-                price = 2;
-                break;
-            default:
-                System.out.println("Something Wrong With Getting Price");
+        case "Potato":
+            price = 4;
+            break;
+        case "potato":
+            price = 4;
+            break;
+        case "Onion":
+            price = 5;
+            break;
+        case "onion":
+            price = 5;
+            break;
+        case "Cabbage":
+            price = 7;
+            break;
+        case "Wheat":
+            price = 2;
+            break;
+        case "wheat":
+            price = 2;
+            break;
+        case "Corn":
+            price = 3;
+            break;
+        case "corn":
+            price = 3;
+            break;
+        case "Rice":
+            price = 2;
+            break;
+        case "rice":
+            price = 2;
+            break;
+        default:
+            System.out.println("Something Wrong With Getting Price");
         }
         if (pastcide) {
             return getPricingFactor() * (price + getTax()) - 10;
@@ -184,8 +183,8 @@ public class Crop {
         return getPricingFactor() * (price + getTax());
     }
 
-    public void decFertilizeLevel(){
-        if(fertilizerLevel < 1){
+    public void decFertilizeLevel() {
+        if (fertilizerLevel < 1) {
             return;
         }
         fertilizerLevel--;

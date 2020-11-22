@@ -4,6 +4,15 @@ import static view.Farming.decTotalMoney;
 import static view.Farming.getfPrice;
 import static model.Inventory.incFertilze;
 import static view.Farming.getTotalMoney;
+import static view.Farming.items;
+import static view.Farming.getTractorPrice;
+import static view.Farming.getPricingFactor;
+import static view.Farming.getIrrigationPrice;
+import static view.Farming.getTax;
+import static view.Farming.setTractorBuy;
+import static view.Farming.setIrragation;
+import static view.Farming.isFirst;
+import static view.Farming.setFirst;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,8 +35,8 @@ import model.Crop;
 import model.Inventory;
 import model.Item;
 import model.Seed;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 
 public class MarketController implements Initializable {
@@ -70,17 +79,21 @@ public class MarketController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url url
-     * @param rb rb
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity())
-                + "/" + Inventory.getTotal());
+        capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity()) + "/" + Inventory.getTotal());
+        if (isFirst()) {
+            setFirst(false);
+            items.add(new Item("Tractor", getPricingFactor() * (getTractorPrice() + getTax())));
+            items.add(new Item("Irrigation", getPricingFactor() * (getIrrigationPrice() + getTax())));
+        }
         setMoneyText();
-        //        if(Farming.inventory_check){
+//        if(Farming.inventory_check){
         inventory();
-        //        sellAll();
+//        sellAll();
     }
 
     void sellAll() {
@@ -90,13 +103,11 @@ public class MarketController implements Initializable {
         ObservableList<Crop> crops = Inventory.crops;
         for (Crop crop : crops) {
             try {
-                Farming.setTotalMoney(Farming.getTotalMoney() + crop.getPrice()
-                        * crop.getQuantity());
-                //                inventoryTable.getItems().remove(crop);
+                Farming.setTotalMoney(Farming.getTotalMoney() + crop.getPrice() * crop.getQuantity());
+//                inventoryTable.getItems().remove(crop);
                 money.setText("Money: " + Farming.getTotalMoney());
                 Inventory.setCapacity(Inventory.getCapacity() + crop.getQuantity());
-                capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity())
-                        + "/" + Inventory.getTotal());
+                capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity()) + "/" + Inventory.getTotal());
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Select a row in inventory table ");
                 return;
@@ -111,8 +122,7 @@ public class MarketController implements Initializable {
         Crop selectedItem = inventoryTable.getSelectionModel().getSelectedItem();
         int index = inventoryTable.getSelectionModel().getSelectedIndex();
         try {
-            Farming.setTotalMoney(Farming.getTotalMoney()
-                    + selectedItem.getPrice() * selectedItem.getQuantity());
+            Farming.setTotalMoney(Farming.getTotalMoney() + selectedItem.getPrice() * selectedItem.getQuantity());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Select a row in inventory table ");
             return;
@@ -121,8 +131,7 @@ public class MarketController implements Initializable {
         inventoryTable.getItems().remove(selectedItem);
         money.setText("Money: " + Farming.getTotalMoney());
         Inventory.setCapacity(Inventory.getCapacity() + selectedItem.getQuantity());
-        capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity())
-                + "/" + Inventory.getTotal());
+        capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity()) + "/" + Inventory.getTotal());
     }
 
     @FXML
@@ -139,6 +148,12 @@ public class MarketController implements Initializable {
             }
 
             int itemPrice = selectedItem.getPrice();
+            if (selectedItem.getName().equalsIgnoreCase("Tractor")) {
+                setTractorBuy(true);
+            }
+            if (selectedItem.getName().equalsIgnoreCase("Irrigation")) {
+                setIrragation(true);
+            }
             String q = JOptionPane.showInputDialog("Enter Quantity");
             if (itemPrice * Integer.parseInt(q) <= Farming.getTotalMoney()) {
                 if (Inventory.getCapacity() < Integer.parseInt(q)) {
@@ -149,8 +164,7 @@ public class MarketController implements Initializable {
                 Inventory.setCapacity(updateCap);
                 Farming.setTotalMoney(Farming.getTotalMoney() - itemPrice * Integer.parseInt(q));
                 money.setText("Money: " + Farming.getTotalMoney());
-                capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity())
-                        + "/" + Inventory.getTotal());
+                capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity()) + "/" + Inventory.getTotal());
 
             } else {
                 JOptionPane.showMessageDialog(null, "not enough money");
@@ -179,8 +193,7 @@ public class MarketController implements Initializable {
                 Inventory.setCapacity(updateCap);
                 Farming.setTotalMoney(Farming.getTotalMoney() - seedPrice * Integer.parseInt(q));
                 money.setText("Money: " + Farming.getTotalMoney());
-                capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity())
-                        + "/" + Inventory.getTotal());
+                capacity.setText("Capacity: " + (Inventory.getTotal() - Inventory.getCapacity()) + "/" + Inventory.getTotal());
             } else {
                 JOptionPane.showMessageDialog(null, "not enough money");
                 return;
@@ -205,6 +218,7 @@ public class MarketController implements Initializable {
 
     void inventory() {
         if (Farming.isMarketCheck()) {
+//            fill();
             Farming.setMarketCheck(false);
         }
         iItem.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -246,8 +260,7 @@ public class MarketController implements Initializable {
         if (seedR.isSelected()) {
             Seed selectedItem = seedTable.getSelectionModel().getSelectedItem();
             try {
-                price = Integer.parseInt(JOptionPane.showInputDialog("Enter New Price For "
-                        + selectedItem.getName()));
+                price = Integer.parseInt(JOptionPane.showInputDialog("Enter New Price For " + selectedItem.getName()));
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Select aa seed in seed table ");
                 return;
@@ -263,8 +276,7 @@ public class MarketController implements Initializable {
         } else if (itemR.isSelected()) {
             Item selectedItem = marketTable.getSelectionModel().getSelectedItem();
             try {
-                price = Integer.parseInt(JOptionPane.showInputDialog("Enter New Price For "
-                        + selectedItem.getName()));
+                price = Integer.parseInt(JOptionPane.showInputDialog("Enter New Price For " + selectedItem.getName()));
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Select an item in item table ");
                 return;

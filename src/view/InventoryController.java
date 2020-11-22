@@ -5,7 +5,7 @@
  */
 package view;
 
-//import static view.MarketController.fill;
+import static view.MarketController.fill;
 import static model.Inventory.crops;
 import static model.Inventory.getFertilize;
 import model.Crop;
@@ -27,13 +27,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-//import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author Sheikh Munim Tazwar Riddhi
+ * @author Sardar Tariq Khan
  */
 public class InventoryController implements Initializable {
 
@@ -53,15 +53,14 @@ public class InventoryController implements Initializable {
     private Label capacity;
     @FXML
     private Label fertilizer;
-    //    private static String seedToFarm;
+//    private static String seedToFarm;
     static ObservableList<Crop> cropList = FXCollections.observableArrayList();
     static ObservableList<String> seed = FXCollections.observableArrayList();
     static ObservableList<String> items = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        capacity.setText(capacity.getText() + " " + (Inventory.getTotal()
-                - Inventory.getCapacity()) + "/" + Inventory.getTotal());
+        capacity.setText(capacity.getText() + " " + (Inventory.getTotal() - Inventory.getCapacity()) + "/" + Inventory.getTotal());
         fertilzerCount();
         removeAllItemsFromCropList();
         fillInventory();
@@ -115,7 +114,7 @@ public class InventoryController implements Initializable {
     }
 
     void fillCropList() {
-        //        cropList.clear();
+//        cropList.clear();
         crops.forEach(x -> {
             cropList.add(new Crop(x.getName(), x.getQuantity()));
         });
@@ -132,7 +131,7 @@ public class InventoryController implements Initializable {
         }
     }
     
-    private void fertilzerCount() {
+    private void fertilzerCount(){
         fertilizer.setText("Fertilizer: " + getFertilize());
     }
 }

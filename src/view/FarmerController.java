@@ -1,4 +1,3 @@
-
 package view;
 
 import static view.Farming.isHired;
@@ -56,25 +55,25 @@ public class FarmerController implements Initializable {
 
     @FXML
     private void hire(ActionEvent event) {
-        if (isHired()) {
+        if(isHired()){
             JOptionPane.showMessageDialog(null, "Farmer is already hired!");
             return;
         }
-        if (d1.isSelected()) {
+        if(d1.isSelected()){
             setHireDays(1);
-        } else if (d7.isSelected()) {
+        }else if (d7.isSelected()){
             setHireDays(7);
-        } else if (d14.isSelected()) {
+        }else if (d14.isSelected()){
             setHireDays(14);
-        } else {
+        }else {
             JOptionPane.showMessageDialog(null, "Please select days");
             return;
         }
-        if (matureF.isSelected()) {
+        if(matureF.isSelected()){
             setMature(true);
-        } else if (immatureF.isSelected()) {
+        }else if(immatureF.isSelected()){
             setMature(false);
-        } else {
+        }else {
             JOptionPane.showMessageDialog(null, "Please select farmer type");
             return;
         }

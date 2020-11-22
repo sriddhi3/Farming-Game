@@ -12,7 +12,7 @@
    <children>
       <TableView fx:id="harvestedCrops" layoutX="21.0" layoutY="57.0" prefHeight="481.0" prefWidth="390.0">
         <columns>
-          <TableColumn fx:id="crop" prefWidth="173.0" text="Crops and Items" />
+          <TableColumn fx:id="crop" prefWidth="173.0" text="Crops" />
           <TableColumn fx:id="number" prefWidth="96.0" text="Quantity" />
             <TableColumn fx:id="iType" prefWidth="120.0" text="Type" />
         </columns>

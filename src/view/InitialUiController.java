@@ -13,14 +13,24 @@ import static view.Farming.farm;
 import static view.Farming.getHireDays;
 import static view.Farming.setHireDays;
 import static view.Farming.isMature;
-//import static view.Farming.setMature;
+import static view.Farming.setMature;
 import static view.Farming.setHired;
+import static view.Farming.setTotalMoney;
+import static view.Farming.getTotalMoney;
 import static view.Farming.isHired;
+import static view.Farming.setWaterCount;
+import static view.Farming.setHarvestCount;
+import static view.Farming.incHarvestCount;
+import static view.Farming.incWaterCount;
+import static view.Farming.getHarvestCount;
+import static view.Farming.getWaterCount;
+import static view.Farming.isTractorBuy;
+import static view.Farming.isIrragation;
 import model.Crop;
 import model.Inventory;
 import java.io.IOException;
 import java.net.URL;
-//import java.util.Random;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,7 +42,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-//import javafx.scene.layout.Background;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -157,8 +167,6 @@ public class InitialUiController implements Initializable {
     private int userWate = Farming.farm.getUserWater();
     private final int totalWater = Farming.farm.getTotalWater();
     private final int dayCount = Farming.getDayCount();
-    //    Rectangle[] boxes = {box00, box01, box02, box03, box10, box11, box12, box13,
-    //    box20, box21, box22, box23, box30, box31, box32, box33};
     @FXML
     private Button pestiside;
     @FXML
@@ -195,6 +203,152 @@ public class InitialUiController implements Initializable {
     private Label f32;
     @FXML
     private Label f33;
+    @FXML
+    private Rectangle box301;
+    @FXML
+    private Rectangle box311;
+    @FXML
+    private Rectangle box321;
+    @FXML
+    private Rectangle box331;
+    @FXML
+    private Label lb301;
+    @FXML
+    private Label lb311;
+    @FXML
+    private Label lb321;
+    @FXML
+    private Label lb331;
+    @FXML
+    private Label wvalue301;
+    @FXML
+    private Label wvalue311;
+    @FXML
+    private Label wvalue321;
+    @FXML
+    private Label wvalue331;
+    @FXML
+    private Label f301;
+    @FXML
+    private Label f311;
+    @FXML
+    private Label f321;
+    @FXML
+    private Rectangle box031;
+    @FXML
+    private Rectangle box131;
+    @FXML
+    private Rectangle box231;
+    @FXML
+    private Rectangle box332;
+    @FXML
+    private Label lb031;
+    @FXML
+    private Label lb131;
+    @FXML
+    private Label lb231;
+    @FXML
+    private Label lb332;
+    @FXML
+    private Label wvalue031;
+    @FXML
+    private Label wvalue131;
+    @FXML
+    private Label wvalue231;
+    @FXML
+    private Label wvalue332;
+    @FXML
+    private Label f031;
+    @FXML
+    private Label f131;
+    @FXML
+    private Label f231;
+    @FXML
+    private Label f331;
+    @FXML
+    private Rectangle box3311;
+    @FXML
+    private Label lb3311;
+    @FXML
+    private Label wvalue3311;
+    @FXML
+    private Rectangle box0311;
+    @FXML
+    private Rectangle box1311;
+    @FXML
+    private Rectangle box2311;
+    @FXML
+    private Rectangle box3321;
+    @FXML
+    private Label lb0311;
+    @FXML
+    private Label lb1311;
+    @FXML
+    private Label lb2311;
+    @FXML
+    private Label lb3321;
+    @FXML
+    private Label wvalue0311;
+    @FXML
+    private Label wvalue1311;
+    @FXML
+    private Label wvalue2311;
+    @FXML
+    private Label wvalue3321;
+    @FXML
+    private Label f0311;
+    @FXML
+    private Label f1311;
+    @FXML
+    private Label f2311;
+    @FXML
+    private Label f3311;
+    @FXML
+    private Rectangle box33111;
+    @FXML
+    private Label lb33111;
+    @FXML
+    private Label wvalue33111;
+    @FXML
+    private Label pstid1;
+    @FXML
+    private Rectangle box03111;
+    @FXML
+    private Rectangle box13111;
+    @FXML
+    private Rectangle box23111;
+    @FXML
+    private Rectangle box33211;
+    @FXML
+    private Label lb03111;
+    @FXML
+    private Label lb13111;
+    @FXML
+    private Label lb23111;
+    @FXML
+    private Label lb33211;
+    @FXML
+    private Label wvalue03111;
+    @FXML
+    private Label wvalue13111;
+    @FXML
+    private Label wvalue23111;
+    @FXML
+    private Label wvalue33211;
+    @FXML
+    private Label f03111;
+    @FXML
+    private Label f13111;
+    @FXML
+    private Label f23111;
+    @FXML
+    private Label f33111;
+    @FXML
+    private Rectangle box331111;
+    @FXML
+    private Label lb331111;
+    @FXML
+    private Label wvalue331111;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -217,13 +371,11 @@ public class InitialUiController implements Initializable {
         // set wvalue to 0
         wvalue.setText("0");
         Inventory.setCapacity(Inventory.getCapacity() - 1);
-        //        try {
-        //            Inventory.crops.get(0).setQuantity(Inventory.crops.get(0)
-        //            .getQuantity() + 1);
-        //        } catch (IndexOutOfBoundsException ex) {
-        ////                Inventory.crops.get(0).setQuantity(Inventory.crops
-        // .get(0).getQuantity() + 1);
-        //        }
+//        try {
+//            Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
+//        } catch (IndexOutOfBoundsException ex) {
+////                Inventory.crops.get(0).setQuantity(Inventory.crops.get(0).getQuantity() + 1);
+//        }
         colors[i][j] = 1;
     }
 
@@ -240,7 +392,6 @@ public class InitialUiController implements Initializable {
         int i = 0;
         int j = 0;
         boxAction(rec, lb, wv, i, j, f00);
-
     }
 
     @FXML
@@ -463,17 +614,17 @@ public class InitialUiController implements Initializable {
             if (!isDead(rec)) {
                 if (!Farming.farm.crops[i][j].isPastiside()) {
                     switch (getSelectedDifficulty()) {
-                    case "easy":
-                        setTotalMoney(getTotalMoney() - 10);
-                        break;
-                    case "medium":
-                        setTotalMoney(getTotalMoney() - 20);
-                        break;
-                    case "hard":
-                        setTotalMoney(getTotalMoney() - 30);
-                        break;
-                    default:
-                        System.out.println("Something Wrong with pasticide");
+                        case "easy":
+                            setTotalMoney(getTotalMoney() - 10);
+                            break;
+                        case "medium":
+                            setTotalMoney(getTotalMoney() - 20);
+                            break;
+                        case "hard":
+                            setTotalMoney(getTotalMoney() - 30);
+                            break;
+                        default:
+                            System.out.println("Something Wrong with pasticide");
                     }
                     updateMoneyLabel();
                     Farming.farm.crops[i][j].setPastiside(true);
@@ -485,17 +636,25 @@ public class InitialUiController implements Initializable {
         }
         /////////////// if farm is mature or no dead
         if (checkColor(c) || isDead(rec)) {
-
             if (!isDead(rec)) {
-                Farming.farm.crops[i][j].setPastiside(false);
-                addCropToInventory(i, j, lb.getText());
-                updateFertileLevels(i, j, f);
+                if (isTractorBuy() || getHarvestCount() < 2) {
+                    Farming.farm.crops[i][j].setPastiside(false);
+                    addCropToInventory(i, j, lb.getText());
+                    updateFertileLevels(i, j, f);
+                    wv.setText("0");
+                    lb.setText("empty");
+                    rec.setFill(javafx.scene.paint.Color.web(emptyField));
+                    colors[i][j] = 1;
+                    incHarvestCount();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Daily harvest limit reached. Cannot harvest more");
+                }
+            } else {
+                wv.setText("0");
+                lb.setText("empty");
+                rec.setFill(javafx.scene.paint.Color.web(emptyField));
+                colors[i][j] = 1;
             }
-            wv.setText("0");
-            lb.setText("empty");
-            rec.setFill(javafx.scene.paint.Color.web(emptyField));
-
-            colors[i][j] = 1;
             return;
         }
         /////////////// Farm new Seed
@@ -522,6 +681,7 @@ public class InitialUiController implements Initializable {
             Farming.farm.crops[i][j].setName(Inventory.getSeedToFarm());
             incCapacity();
         }
+        gameOver();
     }
 
     private void updateFertileLevels(int i, int j, Label f) {
@@ -539,15 +699,13 @@ public class InitialUiController implements Initializable {
 
     void addCropToInventory(int i, int j, String cropName) {
         if (isHired()) {
-            Farming.setTotalMoney(Farming.getTotalMoney()
-                    + Crop.getCropPrice(cropName, isPestiside()));
+            Farming.setTotalMoney(Farming.getTotalMoney() + Crop.getCropPrice(cropName, isPestiside()));
             return;
         }
         decCapacity();
         for (Crop x : crops) {
             if (x.getName().equalsIgnoreCase(cropName)) {
-                System.out.println(Farming.farm.crops[i][j].getFertilizerLevel()
-                        + "\t Fertilize level");
+                System.out.println(Farming.farm.crops[i][j].getFertilizerLevel() + "\t Fertilize level");
                 if (Farming.farm.crops[i][j].getFertilizerLevel() > 0) {
                     x.setQuantity(x.getQuantity() + 2);
                 } else {
@@ -590,7 +748,7 @@ public class InitialUiController implements Initializable {
         }
         userWate++;
         Farming.farm.setUserWater(Farming.farm.getUserWater() + 1);
-        //        Farming.farm.setUserWater(Farming.farm.getUserWater() + 1);
+//        Farming.farm.setUserWater(Farming.farm.getUserWater() + 1);
         setWaterLevel();
     }
 
@@ -604,30 +762,30 @@ public class InitialUiController implements Initializable {
             randomColor = colors[0][0];
         }
         switch (randomColor) {
-        case 1:
-            box00.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[0][0].setState(0);
-            Farming.farm.crops[0][0].setName(Farming.getState(0));
-            Farming.farm.crops[0][0].setQuantity(0);
-            break;
-        case 2:
-            box00.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[0][0].setState(1);
-            break;
-        case 3:
-            box00.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[0][0].setState(2);
-            break;
-        case 4:
-            box00.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[0][0].setState(3);
-            break;
-        case 5:
-            box00.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[0][0].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                box00.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[0][0].setState(0);
+                Farming.farm.crops[0][0].setName(Farming.getState(0));
+                Farming.farm.crops[0][0].setQuantity(0);
+                break;
+            case 2:
+                box00.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[0][0].setState(1);
+                break;
+            case 3:
+                box00.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[0][0].setState(2);
+                break;
+            case 4:
+                box00.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[0][0].setState(3);
+                break;
+            case 5:
+                box00.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[0][0].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -638,30 +796,30 @@ public class InitialUiController implements Initializable {
             randomColor = colors[0][1];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[0][1].setQuantity(0);
-            box01.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[0][1].setName(Farming.getState(0));
-            Farming.farm.crops[0][1].setState(0);
-            break;
-        case 2:
-            box01.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[0][1].setState(1);
-            break;
-        case 3:
-            box01.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[0][1].setState(2);
-            break;
-        case 4:
-            box01.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[0][1].setState(3);
-            break;
-        case 5:
-            box01.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[0][1].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[0][1].setQuantity(0);
+                box01.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[0][1].setName(Farming.getState(0));
+                Farming.farm.crops[0][1].setState(0);
+                break;
+            case 2:
+                box01.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[0][1].setState(1);
+                break;
+            case 3:
+                box01.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[0][1].setState(2);
+                break;
+            case 4:
+                box01.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[0][1].setState(3);
+                break;
+            case 5:
+                box01.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[0][1].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -672,32 +830,32 @@ public class InitialUiController implements Initializable {
             randomColor = colors[0][2];
         }
         switch (randomColor) {
-        case 1:
-            //                lb02.setText("empty");
-            //                wvalue02.setText("0");
-            Farming.farm.crops[0][2].setQuantity(0);
-            box02.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[0][2].setName(Farming.getState(0));
-            Farming.farm.crops[0][2].setState(0);
-            break;
-        case 2:
-            box02.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[0][2].setState(1);
-            break;
-        case 3:
-            box02.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[0][2].setState(2);
-            break;
-        case 4:
-            box02.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[0][2].setState(3);
-            break;
-        case 5:
-            box02.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[0][2].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+//                lb02.setText("empty");
+//                wvalue02.setText("0");
+                Farming.farm.crops[0][2].setQuantity(0);
+                box02.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[0][2].setName(Farming.getState(0));
+                Farming.farm.crops[0][2].setState(0);
+                break;
+            case 2:
+                box02.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[0][2].setState(1);
+                break;
+            case 3:
+                box02.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[0][2].setState(2);
+                break;
+            case 4:
+                box02.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[0][2].setState(3);
+                break;
+            case 5:
+                box02.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[0][2].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -708,32 +866,32 @@ public class InitialUiController implements Initializable {
             randomColor = colors[0][3];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[0][3].setQuantity(0);
-            //                lb03.setText("empty");
-            //                wvalue03.setText("0");
-            box03.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[0][3].setName(Farming.getState(0));
-            Farming.farm.crops[0][3].setState(0);
-            break;
-        case 2:
-            box03.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[0][3].setState(1);
-            break;
-        case 3:
-            box03.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[0][3].setState(2);
-            break;
-        case 4:
-            box03.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[0][3].setState(3);
-            break;
-        case 5:
-            box03.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[0][3].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[0][3].setQuantity(0);
+//                lb03.setText("empty");
+//                wvalue03.setText("0");
+                box03.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[0][3].setName(Farming.getState(0));
+                Farming.farm.crops[0][3].setState(0);
+                break;
+            case 2:
+                box03.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[0][3].setState(1);
+                break;
+            case 3:
+                box03.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[0][3].setState(2);
+                break;
+            case 4:
+                box03.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[0][3].setState(3);
+                break;
+            case 5:
+                box03.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[0][3].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -744,32 +902,32 @@ public class InitialUiController implements Initializable {
             randomColor = colors[1][0];
         }
         switch (randomColor) {
-        case 1:
-            //                lb10.setText("empty");
-            //                wvalue10.setText("0");
-            Farming.farm.crops[1][0].setQuantity(0);
-            box10.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[1][0].setName(Farming.getState(0));
-            Farming.farm.crops[1][0].setState(0);
-            break;
-        case 2:
-            box10.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[1][0].setState(1);
-            break;
-        case 3:
-            box10.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[1][0].setState(2);
-            break;
-        case 4:
-            box10.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[1][0].setState(3);
-            break;
-        case 5:
-            box10.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[1][0].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+//                lb10.setText("empty");
+//                wvalue10.setText("0");
+                Farming.farm.crops[1][0].setQuantity(0);
+                box10.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[1][0].setName(Farming.getState(0));
+                Farming.farm.crops[1][0].setState(0);
+                break;
+            case 2:
+                box10.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[1][0].setState(1);
+                break;
+            case 3:
+                box10.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[1][0].setState(2);
+                break;
+            case 4:
+                box10.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[1][0].setState(3);
+                break;
+            case 5:
+                box10.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[1][0].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -780,32 +938,32 @@ public class InitialUiController implements Initializable {
             randomColor = colors[1][1];
         }
         switch (randomColor) {
-        case 1:
-            //                lb11.setText("empty");
-            //                wvalue11.setText("0");
-            Farming.farm.crops[1][1].setQuantity(0);
-            box11.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[1][1].setName(Farming.getState(0));
-            Farming.farm.crops[1][1].setState(0);
-            break;
-        case 2:
-            box11.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[1][1].setState(1);
-            break;
-        case 3:
-            box11.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[1][1].setState(2);
-            break;
-        case 4:
-            box11.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[1][1].setState(3);
-            break;
-        case 5:
-            box11.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[1][1].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+//                lb11.setText("empty");
+//                wvalue11.setText("0");
+                Farming.farm.crops[1][1].setQuantity(0);
+                box11.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[1][1].setName(Farming.getState(0));
+                Farming.farm.crops[1][1].setState(0);
+                break;
+            case 2:
+                box11.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[1][1].setState(1);
+                break;
+            case 3:
+                box11.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[1][1].setState(2);
+                break;
+            case 4:
+                box11.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[1][1].setState(3);
+                break;
+            case 5:
+                box11.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[1][1].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -816,32 +974,32 @@ public class InitialUiController implements Initializable {
             randomColor = colors[1][2];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[1][2].setQuantity(0);
-            //                lb12.setText("empty");
-            //                wvalue12.setText("0");
-            box12.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[1][2].setName(Farming.getState(0));
-            Farming.farm.crops[1][2].setState(0);
-            break;
-        case 2:
-            box12.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[1][1].setState(1);
-            break;
-        case 3:
-            box12.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[1][1].setState(2);
-            break;
-        case 4:
-            box12.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[1][1].setState(3);
-            break;
-        case 5:
-            box12.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[1][2].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[1][2].setQuantity(0);
+//                lb12.setText("empty");
+//                wvalue12.setText("0");
+                box12.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[1][2].setName(Farming.getState(0));
+                Farming.farm.crops[1][2].setState(0);
+                break;
+            case 2:
+                box12.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[1][1].setState(1);
+                break;
+            case 3:
+                box12.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[1][1].setState(2);
+                break;
+            case 4:
+                box12.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[1][1].setState(3);
+                break;
+            case 5:
+                box12.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[1][2].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -852,32 +1010,32 @@ public class InitialUiController implements Initializable {
             randomColor = colors[1][3];
         }
         switch (randomColor) {
-        case 1:
-            //                lb13.setText("empty");
-            //                wvalue13.setText("0");
-            Farming.farm.crops[1][3].setQuantity(0);
-            box13.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[1][3].setName(Farming.getState(0));
-            Farming.farm.crops[1][3].setState(0);
-            break;
-        case 2:
-            box13.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[1][3].setState(1);
-            break;
-        case 3:
-            box13.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[1][3].setState(2);
-            break;
-        case 4:
-            box13.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[1][3].setState(3);
-            break;
-        case 5:
-            box13.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[1][3].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+//                lb13.setText("empty");
+//                wvalue13.setText("0");
+                Farming.farm.crops[1][3].setQuantity(0);
+                box13.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[1][3].setName(Farming.getState(0));
+                Farming.farm.crops[1][3].setState(0);
+                break;
+            case 2:
+                box13.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[1][3].setState(1);
+                break;
+            case 3:
+                box13.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[1][3].setState(2);
+                break;
+            case 4:
+                box13.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[1][3].setState(3);
+                break;
+            case 5:
+                box13.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[1][3].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -888,32 +1046,32 @@ public class InitialUiController implements Initializable {
             randomColor = colors[2][0];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[2][0].setQuantity(0);
-            //                lb20.setText("empty");
-            //                wvalue20.setText("0");
-            box20.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[2][0].setName(Farming.getState(0));
-            Farming.farm.crops[2][0].setState(0);
-            break;
-        case 2:
-            box20.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[2][0].setState(1);
-            break;
-        case 3:
-            box20.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[2][0].setState(2);
-            break;
-        case 4:
-            box20.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[2][0].setState(3);
-            break;
-        case 5:
-            box20.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[2][0].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[2][0].setQuantity(0);
+//                lb20.setText("empty");
+//                wvalue20.setText("0");
+                box20.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[2][0].setName(Farming.getState(0));
+                Farming.farm.crops[2][0].setState(0);
+                break;
+            case 2:
+                box20.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[2][0].setState(1);
+                break;
+            case 3:
+                box20.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[2][0].setState(2);
+                break;
+            case 4:
+                box20.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[2][0].setState(3);
+                break;
+            case 5:
+                box20.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[2][0].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -924,32 +1082,32 @@ public class InitialUiController implements Initializable {
             randomColor = colors[2][1];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[2][1].setQuantity(0);
-            lb21.setText("empty");
-            wvalue21.setText("0");
-            box21.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[2][1].setName(Farming.getState(0));
-            Farming.farm.crops[2][1].setState(0);
-            break;
-        case 2:
-            box21.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[2][1].setState(1);
-            break;
-        case 3:
-            box21.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[2][1].setState(2);
-            break;
-        case 4:
-            box21.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[2][1].setState(3);
-            break;
-        case 5:
-            box21.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[2][1].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[2][1].setQuantity(0);
+                lb21.setText("empty");
+                wvalue21.setText("0");
+                box21.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[2][1].setName(Farming.getState(0));
+                Farming.farm.crops[2][1].setState(0);
+                break;
+            case 2:
+                box21.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[2][1].setState(1);
+                break;
+            case 3:
+                box21.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[2][1].setState(2);
+                break;
+            case 4:
+                box21.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[2][1].setState(3);
+                break;
+            case 5:
+                box21.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[2][1].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -960,34 +1118,34 @@ public class InitialUiController implements Initializable {
             randomColor = colors[2][2];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[2][2].setQuantity(0);
-            lb22.setText("empty");
-            wvalue22.setText("0");
-            box22.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[2][2].setName(Farming.getState(0));
-            Farming.farm.crops[2][2].setState(0);
-            break;
-        case 2:
-            box22.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[2][2].setState(1);
+            case 1:
+                Farming.farm.crops[2][2].setQuantity(0);
+                lb22.setText("empty");
+                wvalue22.setText("0");
+                box22.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[2][2].setName(Farming.getState(0));
+                Farming.farm.crops[2][2].setState(0);
+                break;
+            case 2:
+                box22.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[2][2].setState(1);
 
-            break;
-        case 3:
-            box22.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[2][2].setState(2);
+                break;
+            case 3:
+                box22.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[2][2].setState(2);
 
-            break;
-        case 4:
-            box22.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[2][2].setState(3);
-            break;
-        case 5:
-            box22.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[2][2].setState(4);
-            break;
-        default:
-            break;
+                break;
+            case 4:
+                box22.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[2][2].setState(3);
+                break;
+            case 5:
+                box22.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[2][2].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -998,30 +1156,30 @@ public class InitialUiController implements Initializable {
             randomColor = colors[2][3];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[2][3].setQuantity(0);
-            box23.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[2][3].setName(Farming.getState(0));
-            Farming.farm.crops[2][3].setState(0);
-            break;
-        case 2:
-            box23.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[2][3].setState(1);
-            break;
-        case 3:
-            box23.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[2][3].setState(2);
-            break;
-        case 4:
-            box23.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[2][3].setState(3);
-            break;
-        case 5:
-            box23.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[2][3].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[2][3].setQuantity(0);
+                box23.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[2][3].setName(Farming.getState(0));
+                Farming.farm.crops[2][3].setState(0);
+                break;
+            case 2:
+                box23.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[2][3].setState(1);
+                break;
+            case 3:
+                box23.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[2][3].setState(2);
+                break;
+            case 4:
+                box23.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[2][3].setState(3);
+                break;
+            case 5:
+                box23.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[2][3].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -1032,30 +1190,30 @@ public class InitialUiController implements Initializable {
             randomColor = colors[3][0];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[3][0].setQuantity(0);
-            box30.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[3][0].setName(Farming.getState(0));
-            Farming.farm.crops[3][0].setState(0);
-            break;
-        case 2:
-            box30.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[3][0].setState(1);
-            break;
-        case 3:
-            box30.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[3][0].setState(2);
-            break;
-        case 4:
-            box30.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[3][0].setState(3);
-            break;
-        case 5:
-            box30.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[3][0].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[3][0].setQuantity(0);
+                box30.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[3][0].setName(Farming.getState(0));
+                Farming.farm.crops[3][0].setState(0);
+                break;
+            case 2:
+                box30.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[3][0].setState(1);
+                break;
+            case 3:
+                box30.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[3][0].setState(2);
+                break;
+            case 4:
+                box30.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[3][0].setState(3);
+                break;
+            case 5:
+                box30.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[3][0].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -1066,30 +1224,30 @@ public class InitialUiController implements Initializable {
             randomColor = colors[3][1];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[3][1].setQuantity(0);
-            box31.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[3][1].setName(Farming.getState(0));
-            Farming.farm.crops[3][1].setState(0);
-            break;
-        case 2:
-            box31.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[3][1].setState(1);
-            break;
-        case 3:
-            box31.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[3][1].setState(2);
-            break;
-        case 4:
-            box31.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[3][1].setState(3);
-            break;
-        case 5:
-            box31.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[3][1].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[3][1].setQuantity(0);
+                box31.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[3][1].setName(Farming.getState(0));
+                Farming.farm.crops[3][1].setState(0);
+                break;
+            case 2:
+                box31.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[3][1].setState(1);
+                break;
+            case 3:
+                box31.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[3][1].setState(2);
+                break;
+            case 4:
+                box31.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[3][1].setState(3);
+                break;
+            case 5:
+                box31.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[3][1].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -1100,30 +1258,30 @@ public class InitialUiController implements Initializable {
             randomColor = colors[3][2];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[3][2].setQuantity(0);
-            box32.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[3][2].setName(Farming.getState(0));
-            Farming.farm.crops[3][2].setState(0);
-            break;
-        case 2:
-            box32.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[3][2].setState(1);
-            break;
-        case 3:
-            box32.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[3][2].setState(2);
-            break;
-        case 4:
-            box32.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[3][2].setState(3);
-            break;
-        case 5:
-            box32.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[3][2].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[3][2].setQuantity(0);
+                box32.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[3][2].setName(Farming.getState(0));
+                Farming.farm.crops[3][2].setState(0);
+                break;
+            case 2:
+                box32.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[3][2].setState(1);
+                break;
+            case 3:
+                box32.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[3][2].setState(2);
+                break;
+            case 4:
+                box32.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[3][2].setState(3);
+                break;
+            case 5:
+                box32.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[3][2].setState(4);
+                break;
+            default:
+                break;
 
         }
         if (Farming.isStart()) {
@@ -1134,30 +1292,30 @@ public class InitialUiController implements Initializable {
             randomColor = colors[3][3];
         }
         switch (randomColor) {
-        case 1:
-            Farming.farm.crops[3][3].setQuantity(0);
-            box33.setFill(javafx.scene.paint.Color.web(emptyField));
-            Farming.farm.crops[3][3].setName(Farming.getState(0));
-            Farming.farm.crops[3][3].setState(0);
-            break;
-        case 2:
-            box33.setFill(javafx.scene.paint.Color.web(seedField));
-            Farming.farm.crops[3][3].setState(1);
-            break;
-        case 3:
-            box33.setFill(javafx.scene.paint.Color.web(immatureField));
-            Farming.farm.crops[3][3].setState(2);
-            break;
-        case 4:
-            box33.setFill(javafx.scene.paint.Color.web(matureField));
-            Farming.farm.crops[3][3].setState(3);
-            break;
-        case 5:
-            box33.setFill(javafx.scene.paint.Color.web(deadFied));
-            Farming.farm.crops[3][3].setState(4);
-            break;
-        default:
-            break;
+            case 1:
+                Farming.farm.crops[3][3].setQuantity(0);
+                box33.setFill(javafx.scene.paint.Color.web(emptyField));
+                Farming.farm.crops[3][3].setName(Farming.getState(0));
+                Farming.farm.crops[3][3].setState(0);
+                break;
+            case 2:
+                box33.setFill(javafx.scene.paint.Color.web(seedField));
+                Farming.farm.crops[3][3].setState(1);
+                break;
+            case 3:
+                box33.setFill(javafx.scene.paint.Color.web(immatureField));
+                Farming.farm.crops[3][3].setState(2);
+                break;
+            case 4:
+                box33.setFill(javafx.scene.paint.Color.web(matureField));
+                Farming.farm.crops[3][3].setState(3);
+                break;
+            case 5:
+                box33.setFill(javafx.scene.paint.Color.web(deadFied));
+                Farming.farm.crops[3][3].setState(4);
+                break;
+            default:
+                break;
 
         }
         Farming.setStart(false);
@@ -1190,33 +1348,31 @@ public class InitialUiController implements Initializable {
     }
 
     private int getEvent() {
-        //        Random r = new Random();
+//        Random r = new Random();
         switch (getSelectedDifficulty()) {
-        case "easy":
-            return (int) Math.ceil(Math.random() * 10);
-        case "medium":
-            return (int) Math.ceil(Math.random() * 8);
-        case "hard":
-            return (int) Math.ceil(Math.random() * 5);
-        default:
-            return -1;
+            case "easy":
+                return (int) Math.ceil(Math.random() * 10);
+            case "medium":
+                return (int) Math.ceil(Math.random() * 8);
+            case "hard":
+                return (int) Math.ceil(Math.random() * 5);
+            default:
+                return -1;
         }
     }
 
     private int getRandomNum(int r) {    // returns between 1 - r
-        //        Random r = new Random();
+//        Random r = new Random();
         return (int) Math.ceil(Math.random() * r);
     }
 
     void eventX(int flag) {
         int waterInc = getRandomNum(3);
         if (flag == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "There is heavy rainfall today! Water levels have increased by " + waterInc);
+            JOptionPane.showMessageDialog(null, "There is heavy rainfall today! Water levels have increased by " + waterInc);
             waterThings(waterInc, 1);
         } else if (flag == 1) {
-            JOptionPane.showMessageDialog(null,
-                    "There is a drought today! Water levels have decreased by " + waterInc);
+            JOptionPane.showMessageDialog(null, "There is a drought today! Water levels have decreased by " + waterInc);
             waterThings(waterInc, 0);
         }
     }
@@ -1284,8 +1440,7 @@ public class InitialUiController implements Initializable {
         } else if (getSelectedDifficulty().endsWith("hard")) {
             effacted = 6;
         }
-        JOptionPane.showMessageDialog(null,
-                "There is a drought today! Water levels have decreased by " + effacted);
+        JOptionPane.showMessageDialog(null, "There is a drought today! Water levels have decreased by " + effacted);
         int count = 0;
         for (int i = 0; i < effacted;) {
             while (true) {
@@ -1311,106 +1466,108 @@ public class InitialUiController implements Initializable {
 
     private boolean attack(int n) {
         switch (n) {
-        case 0:
-            return killedByAttack(box00, 0, 0, "min");
-        case 1:
-            if (Farming.farm.crops[0][1].isPastiside()) {
-                System.out.println("Pasticide");
+            case 0:
+                return killedByAttack(box00, 0, 0, "min");
+            case 1:
+                if (Farming.farm.crops[0][1].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box01, 0, 1, "min");
+            case 2:
+                if (Farming.farm.crops[0][2].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box02, 0, 2, "min");
+            case 3:
+                if (Farming.farm.crops[0][3].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box03, 0, 3, "min");
+            case 4:
+                if (Farming.farm.crops[1][0].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box10, 1, 0, "min");
+            case 5:
+                if (Farming.farm.crops[1][1].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box11, 1, 1, "min");
+            case 6:
+                if (Farming.farm.crops[1][2].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box12, 1, 2, "min");
+            case 7:
+                if (Farming.farm.crops[1][3].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box13, 1, 3, "min");
+            case 8:
+                if (Farming.farm.crops[2][0].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box20, 2, 0, "min");
+            case 9:
+                if (Farming.farm.crops[2][1].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box21, 2, 1, "min");
+            case 10:
+                if (Farming.farm.crops[2][2].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box22, 2, 2, "min");
+            case 11:
+                if (Farming.farm.crops[2][3].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box23, 2, 3, "min");
+            case 12:
+                if (Farming.farm.crops[3][0].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box30, 3, 0, "min");
+            case 13:
+                if (Farming.farm.crops[3][1].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box31, 3, 1, "min");
+            case 14:
+                if (Farming.farm.crops[3][2].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box32, 3, 2, "min");
+            case 15:
+                if (Farming.farm.crops[3][3].isPastiside()) {
+                    System.out.println("Pasticide");
+                    return false;
+                }
+                return killedByAttack(box33, 3, 3, "min");
+            default:
+                System.out.println("Wrong with attack");
                 return false;
-            }
-            return killedByAttack(box01, 0, 1, "min");
-        case 2:
-            if (Farming.farm.crops[0][2].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box02, 0, 2, "min");
-        case 3:
-            if (Farming.farm.crops[0][3].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box03, 0, 3, "min");
-        case 4:
-            if (Farming.farm.crops[1][0].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box10, 1, 0, "min");
-        case 5:
-            if (Farming.farm.crops[1][1].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box11, 1, 1, "min");
-        case 6:
-            if (Farming.farm.crops[1][2].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box12, 1, 2, "min");
-        case 7:
-            if (Farming.farm.crops[1][3].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box13, 1, 3, "min");
-        case 8:
-            if (Farming.farm.crops[2][0].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box20, 2, 0, "min");
-        case 9:
-            if (Farming.farm.crops[2][1].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box21, 2, 1, "min");
-        case 10:
-            if (Farming.farm.crops[2][2].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box22, 2, 2, "min");
-        case 11:
-            if (Farming.farm.crops[2][3].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box23, 2, 3, "min");
-        case 12:
-            if (Farming.farm.crops[3][0].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box30, 3, 0, "min");
-        case 13:
-            if (Farming.farm.crops[3][1].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box31, 3, 1, "min");
-        case 14:
-            if (Farming.farm.crops[3][2].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box32, 3, 2, "min");
-        case 15:
-            if (Farming.farm.crops[3][3].isPastiside()) {
-                System.out.println("Pasticide");
-                return false;
-            }
-            return killedByAttack(box33, 3, 3, "min");
-        default:
-            System.out.println("Wrong with attack");
-            return false;
         }
     }
 
     @FXML
     private void date(ActionEvent event) {
+        setHarvestCount(0);
+        setWaterCount(0);
         if (isHired()) {
             if (isMature()) {
                 matureWork();
@@ -1422,17 +1579,17 @@ public class InitialUiController implements Initializable {
         if (r == 3) {
             int e = getRandomNum(3);       // Getting random event
             switch (e) {
-            case 1:
-                eventX(0);  // Rain event
-                return;
-            case 2:
-                eventX(1);  // Drought Event
-                return;
-            case 3:
-                locusts();
-                return;
-            default:
-                System.out.println("Wrong with getting event");
+                case 1:
+                    eventX(0);  // Rain event
+                    return;
+                case 2:
+                    eventX(1);  // Drought Event
+                    return;
+                case 3:
+                    locusts();
+                    return;
+                default:
+                    System.out.println("Wrong with getting event");
             }
 
         }
@@ -1541,11 +1698,10 @@ public class InitialUiController implements Initializable {
 
     void updateFarmStates() {
         String c = "";
-        Rectangle rec;
-        Label lb;
+        Rectangle rec = null;
+        Label lb = null;
         ////////////////////////////
-        int i = 0;
-        int j = 0;
+        int i = 0, j = 0;
         rec = box00;
         lb = wvalue00;
         changeColor(rec, lb, i, j);
@@ -1651,7 +1807,7 @@ public class InitialUiController implements Initializable {
             Farming.farm.crops[i][j].setQuantity(Farming.farm.crops[i][j].getQuantity() - 2);
             killField(rec, i, j, "min");
             setWlevelText(lb, i, j);
-            //            colors[i][j] += 1;
+//            colors[i][j] += 1;
         }
     }
 
@@ -1665,18 +1821,18 @@ public class InitialUiController implements Initializable {
 
     String upgradeFarm(String state, int i, int j) {
         switch (state) {
-        case seedField:
-            if (Farming.farm.crops[i][j].getFertilizerLevel() > 0) {
+            case seedField:
+                if (Farming.farm.crops[i][j].getFertilizerLevel() > 0) {
+                    colors[i][j] += 1;
+                    return matureField;
+                }
+                colors[i][j] += 1;
+                return immatureField;
+            case immatureField:
                 colors[i][j] += 1;
                 return matureField;
-            }
-            colors[i][j] += 1;
-            return immatureField;
-        case immatureField:
-            colors[i][j] += 1;
-            return matureField;
-        default:
-            return state;
+            default:
+                return state;
 
         }
     }
@@ -1698,8 +1854,7 @@ public class InitialUiController implements Initializable {
         if (isDead(rec) || isEmpty(rec)) {
             return false;
         }
-        if (Farming.farm.crops[a][b].getQuantity() < 0
-                || Farming.farm.crops[a][b].getQuantity() > maxWaterLimit) {
+        if (Farming.farm.crops[a][b].getQuantity() < 0 || Farming.farm.crops[a][b].getQuantity() > maxWaterLimit) {
             rec.setFill(javafx.scene.paint.Color.web(deadFied));
             colors[a][b] = 5;
             return true;
@@ -1721,6 +1876,10 @@ public class InitialUiController implements Initializable {
         Rectangle rec = box00;
         Label wlevel = wvalue00;
         int x = 0, y = 0;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1728,6 +1887,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1738,8 +1898,11 @@ public class InitialUiController implements Initializable {
     private void btn01(ActionEvent event) {
         Rectangle rec = box01;
         Label wlevel = wvalue01;
-        int x = 0;
-        int y = 1;
+        int x = 0, y = 1;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1747,6 +1910,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1757,8 +1921,11 @@ public class InitialUiController implements Initializable {
     private void btn02(ActionEvent event) {
         Rectangle rec = box02;
         Label wlevel = wvalue02;
-        int x = 0;
-        int y = 2;
+        int x = 0, y = 2;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1766,6 +1933,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1776,8 +1944,11 @@ public class InitialUiController implements Initializable {
     private void btn03(ActionEvent event) {
         Rectangle rec = box03;
         Label wlevel = wvalue03;
-        int x = 0;
-        int y = 3;
+        int x = 0, y = 3;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1785,6 +1956,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1795,8 +1967,11 @@ public class InitialUiController implements Initializable {
     private void btn10(ActionEvent event) {
         Rectangle rec = box10;
         Label wlevel = wvalue10;
-        int x = 1;
-        int y = 0;
+        int x = 1, y = 0;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1804,6 +1979,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1814,8 +1990,11 @@ public class InitialUiController implements Initializable {
     private void btn11(ActionEvent event) {
         Rectangle rec = box11;
         Label wlevel = wvalue11;
-        int x = 1;
-        int y = 1;
+        int x = 1, y = 1;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1823,6 +2002,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1833,8 +2013,11 @@ public class InitialUiController implements Initializable {
     private void btn12(ActionEvent event) {
         Rectangle rec = box12;
         Label wlevel = wvalue12;
-        int x = 1;
-        int y = 2;
+        int x = 1, y = 2;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1842,6 +2025,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1852,8 +2036,11 @@ public class InitialUiController implements Initializable {
     private void btn13(ActionEvent event) {
         Rectangle rec = box13;
         Label wlevel = wvalue13;
-        int x = 1;
-        int y = 3;
+        int x = 1, y = 3;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1861,6 +2048,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1871,8 +2059,11 @@ public class InitialUiController implements Initializable {
     private void btn20(ActionEvent event) {
         Rectangle rec = box20;
         Label wlevel = wvalue20;
-        int x = 2;
-        int y = 0;
+        int x = 2, y = 0;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1880,6 +2071,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1890,8 +2082,11 @@ public class InitialUiController implements Initializable {
     private void btn21(ActionEvent event) {
         Rectangle rec = box21;
         Label wlevel = wvalue21;
-        int x = 2;
-        int y = 1;
+        int x = 2, y = 1;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1899,6 +2094,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1909,8 +2105,11 @@ public class InitialUiController implements Initializable {
     private void btn22(ActionEvent event) {
         Rectangle rec = box22;
         Label wlevel = wvalue22;
-        int x = 2;
-        int y = 2;
+        int x = 2, y = 2;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1918,6 +2117,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1928,8 +2128,11 @@ public class InitialUiController implements Initializable {
     private void btn23(ActionEvent event) {
         Rectangle rec = box23;
         Label wlevel = wvalue23;
-        int x = 2;
-        int y = 3;
+        int x = 2, y = 3;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1937,6 +2140,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1947,8 +2151,11 @@ public class InitialUiController implements Initializable {
     private void btn30(ActionEvent event) {
         Rectangle rec = box30;
         Label wlevel = wvalue30;
-        int x = 3;
-        int y = 0;
+        int x = 3, y = 0;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1956,6 +2163,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1966,8 +2174,11 @@ public class InitialUiController implements Initializable {
     private void btn31(ActionEvent event) {
         Rectangle rec = box31;
         Label wlevel = wvalue31;
-        int x = 3;
-        int y = 1;
+        int x = 3, y = 1;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1975,6 +2186,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -1985,8 +2197,11 @@ public class InitialUiController implements Initializable {
     private void btn32(ActionEvent event) {
         Rectangle rec = box32;
         Label wlevel = wvalue32;
-        int x = 3;
-        int y = 2;
+        int x = 3, y = 2;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -1994,6 +2209,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -2004,8 +2220,11 @@ public class InitialUiController implements Initializable {
     private void btn33(ActionEvent event) {
         Rectangle rec = box33;
         Label wlevel = wvalue33;
-        int x = 3;
-        int y = 3;
+        int x = 3, y = 3;
+        if (!isIrragation() && getWaterCount() >= 20) {
+            JOptionPane.showMessageDialog(null, "Daily water limit reached. Can't water more");
+            return;
+        }
         if (isEmpty(rec) || isDead(rec)) {
             return;
         }
@@ -2013,6 +2232,7 @@ public class InitialUiController implements Initializable {
             JOptionPane.showMessageDialog(null, "Empty Water!");
             return;
         }
+        incWaterCount();
         userWate--;
         setWaterLevel();
         increaseWaterLevel(x, y, wlevel, 1);
@@ -2216,4 +2436,28 @@ public class InitialUiController implements Initializable {
         window.show();
     }
 
+    public boolean gameOver() {
+        if (isEmptyPlots() && getTotalMoney() <= 0) {
+            JOptionPane.showMessageDialog(null, "Game Over!");
+            System.exit(0);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isEmptyPlots() {
+        if (isEmpty(box00) && isEmpty(box01) && isEmpty(box02) && isEmpty(box03) && isEmpty(box10) && isEmpty(box11) && isEmpty(box12) && isEmpty(box13) && isEmpty(box20) && isEmpty(box21) && isEmpty(box22) && isEmpty(box23) && isEmpty(box30) && isEmpty(box31) && isEmpty(box32) && isEmpty(box33)) {
+            return true;
+        }
+        return false;
+    }
+
+    @FXML
+    private void over(ActionEvent event) throws IOException {
+        Parent tableView = FXMLLoader.load(getClass().getResource("config_screen.fxml"));
+        Scene tableViewscene = new Scene(tableView);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(tableViewscene);
+        window.show();
+    }
 }

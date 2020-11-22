@@ -96,12 +96,12 @@ public class Inventory {
         crops.add(crop);
     }
     
-    public static void incFertilze() {
+    public static void incFertilze(){
         fertilize++;
     }
     
-    public static void decFertelize() {
-        if (fertilize < 1) {
+    public static void decFertelize(){
+        if(fertilize < 1){
             return;
         }
         fertilize--;

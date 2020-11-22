@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="601.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.InitialUiController">
+<AnchorPane prefHeight="601.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.InitialUiController">
    <children>
       <Label fx:id="money" layoutX="14.0" layoutY="568.0" prefHeight="25.0" prefWidth="94.0" text="Money: 100">
          <font>
@@ -17,7 +17,7 @@
       <Rectangle fx:id="box01" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="122.0" layoutY="149.0" onMouseClicked="#box01Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="110.0" />
       <Rectangle fx:id="box02" arcHeight="5.0" arcWidth="5.0" fill="#c9b09e" height="80.0" layoutX="233.0" layoutY="149.0" onMouseClicked="#box02Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="110.0" />
       <Rectangle fx:id="box03" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="344.0" layoutY="149.0" onMouseClicked="#box03Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="110.0" />
-      <Label layoutX="549.0" layoutY="558.0" prefHeight="32.0" prefWidth="43.0" text="Date: ">
+      <Label layoutX="889.0" layoutY="558.0" prefHeight="32.0" prefWidth="43.0" text="Date: ">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -34,7 +34,7 @@
       <Rectangle fx:id="box31" arcHeight="5.0" arcWidth="5.0" fill="#c9b09e" height="80.0" layoutX="122.0" layoutY="392.0" onMouseClicked="#box31Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="110.0" />
       <Rectangle fx:id="box32" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="233.0" layoutY="392.0" onMouseClicked="#box32Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="110.0" />
       <Rectangle fx:id="box33" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="344.0" layoutY="392.0" onMouseClicked="#box33Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="110.0" />
-      <Label fx:id="date" layoutX="594.0" layoutY="558.0" prefHeight="32.0" prefWidth="76.0" text="Day 1">
+      <Label fx:id="date" layoutX="934.0" layoutY="558.0" prefHeight="32.0" prefWidth="76.0" text="Day 1">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
@@ -52,19 +52,19 @@
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="484.0" layoutY="218.0" mnemonicParsing="false" onAction="#inventory" prefHeight="42.0" prefWidth="173.0" text="Inventory" />
-      <Button layoutX="484.0" layoutY="277.0" mnemonicParsing="false" onAction="#market" prefHeight="42.0" prefWidth="173.0" text="Market" />
-      <Label fx:id="season" layoutX="406.0" layoutY="62.0" prefHeight="48.0" prefWidth="299.0" text="Season: ">
+      <Button layoutX="824.0" layoutY="218.0" mnemonicParsing="false" onAction="#inventory" prefHeight="42.0" prefWidth="173.0" text="Inventory" />
+      <Button layoutX="824.0" layoutY="277.0" mnemonicParsing="false" onAction="#market" prefHeight="42.0" prefWidth="173.0" text="Market" />
+      <Label fx:id="season" layoutX="746.0" layoutY="62.0" prefHeight="48.0" prefWidth="299.0" text="Season: ">
          <font>
             <Font name="Bell MT Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="playerName" layoutX="406.0" layoutY="14.0" prefHeight="48.0" prefWidth="299.0" text="Welcome">
+      <Label fx:id="playerName" layoutX="746.0" layoutY="14.0" prefHeight="48.0" prefWidth="299.0" text="Welcome">
          <font>
             <Font name="Bell MT" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="458.0" layoutY="562.0" mnemonicParsing="false" onAction="#date" text="Next Day" />
+      <Button layoutX="798.0" layoutY="562.0" mnemonicParsing="false" onAction="#date" text="Next Day" />
       <Label fx:id="lb00" layoutX="14.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
       <Label fx:id="lb01" layoutX="125.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
       <Label fx:id="lb02" layoutX="237.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" />
@@ -129,15 +129,15 @@
       <Separator layoutX="179.0" layoutY="393.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" />
       <Separator layoutX="399.0" layoutY="391.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" />
       <Separator layoutX="289.0" layoutY="392.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" />
-      <Label fx:id="userWater" layoutX="490.0" layoutY="429.0" prefHeight="42.0" prefWidth="161.0" text="User Water: " />
-      <Button layoutX="484.0" layoutY="379.0" mnemonicParsing="false" onAction="#well" prefHeight="42.0" prefWidth="173.0" style="-fx-background-color: #454545;" text="Water Well" textFill="#eaee0e">
+      <Label fx:id="userWater" layoutX="830.0" layoutY="429.0" prefHeight="42.0" prefWidth="161.0" text="User Water: " />
+      <Button layoutX="824.0" layoutY="379.0" mnemonicParsing="false" onAction="#well" prefHeight="42.0" prefWidth="173.0" style="-fx-background-color: #454545;" text="Water Well" textFill="#eaee0e">
          <font>
             <Font size="16.0" />
          </font></Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#303c19cc" height="18.0" layoutX="106.0" layoutY="41.0" stroke="BLACK" strokeType="INSIDE" width="22.0" />
       <Label layoutX="149.0" layoutY="41.0" prefHeight="18.0" prefWidth="43.0" text="Dead" />
-      <Button fx:id="pestiside" layoutX="530.0" layoutY="178.0" mnemonicParsing="false" onAction="#pestiside" style="-fx-background-color: #121212;" text="Pesticides " textFill="#bfff00" />
-      <Label fx:id="pstid" layoutX="616.0" layoutY="182.0" opacity="0.0" prefHeight="17.0" prefWidth="72.0" text="Deselected" />
+      <Button fx:id="pestiside" layoutX="870.0" layoutY="178.0" mnemonicParsing="false" onAction="#pestiside" style="-fx-background-color: #121212;" text="Pesticides " textFill="#bfff00" />
+      <Label fx:id="pstid" layoutX="616.0" layoutY="184.0" opacity="0.0" prefHeight="17.0" prefWidth="72.0" text="Deselected" visible="false" />
       <Label fx:id="f00" layoutX="17.0" layoutY="182.0" text="Label" />
       <Label fx:id="f01" layoutX="128.0" layoutY="182.0" text="Label" />
       <Label fx:id="f02" layoutX="237.0" layoutY="182.0" text="Label" />
@@ -170,6 +170,127 @@
       <Button layoutX="152.0" layoutY="364.0" mnemonicParsing="false" onAction="#f21" prefHeight="25.0" prefWidth="28.0" text="F" />
       <Button layoutX="262.0" layoutY="365.0" mnemonicParsing="false" onAction="#f22" prefHeight="25.0" prefWidth="28.0" text="F" />
       <Button layoutX="373.0" layoutY="363.0" mnemonicParsing="false" onAction="#f23" prefHeight="25.0" prefWidth="28.0" text="F" />
-      <Button layoutX="484.0" layoutY="328.0" mnemonicParsing="false" onAction="#farmer" prefHeight="42.0" prefWidth="173.0" text="Hire Farmer" />
+      <Button layoutX="824.0" layoutY="328.0" mnemonicParsing="false" onAction="#farmer" prefHeight="42.0" prefWidth="173.0" text="Hire Farmer" />
+      <Rectangle fx:id="box301" arcHeight="5.0" arcWidth="5.0" fill="#f8dfdf" height="80.0" layoutX="11.0" layoutY="473.0" onMouseClicked="#box30Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box311" arcHeight="5.0" arcWidth="5.0" fill="#c9b09e" height="80.0" layoutX="122.0" layoutY="473.0" onMouseClicked="#box31Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box321" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="233.0" layoutY="473.0" onMouseClicked="#box32Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box331" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="344.0" layoutY="473.0" onMouseClicked="#box33Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Label fx:id="lb301" layoutX="13.0" layoutY="473.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb311" layoutX="125.0" layoutY="473.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb321" layoutX="235.0" layoutY="473.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb331" layoutX="346.0" layoutY="473.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="wvalue301" layoutX="15.0" layoutY="491.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="13.0" layoutY="526.0" mnemonicParsing="false" onAction="#btn30" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue311" layoutX="127.0" layoutY="491.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Label fx:id="wvalue321" layoutX="237.0" layoutY="491.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Label fx:id="wvalue331" layoutX="348.0" layoutY="491.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="345.0" layoutY="524.0" mnemonicParsing="false" onAction="#btn33" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="f301" layoutX="15.0" layoutY="506.0" text="Label" visible="false" />
+      <Label fx:id="f311" layoutX="126.0" layoutY="506.0" text="Label" visible="false" />
+      <Label fx:id="f321" layoutX="235.0" layoutY="506.0" text="Label" visible="false" />
+      <Button layoutX="41.0" layoutY="526.0" mnemonicParsing="false" onAction="#f30" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="151.0" layoutY="524.0" mnemonicParsing="false" onAction="#f31" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="262.0" layoutY="524.0" mnemonicParsing="false" onAction="#f32" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="372.0" layoutY="524.0" mnemonicParsing="false" onAction="#f33" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Rectangle fx:id="box031" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="455.0" layoutY="149.0" onMouseClicked="#box03Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box131" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="455.0" layoutY="230.0" onMouseClicked="#box13Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box231" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="455.0" layoutY="311.0" onMouseClicked="#box23Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box332" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="455.0" layoutY="392.0" onMouseClicked="#box33Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Label fx:id="lb031" layoutX="457.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb131" layoutX="457.0" layoutY="230.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb231" layoutX="457.0" layoutY="310.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb332" layoutX="457.0" layoutY="392.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="wvalue031" layoutX="459.0" layoutY="167.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="454.0" layoutY="199.0" mnemonicParsing="false" onAction="#btn03" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue131" layoutX="459.0" layoutY="248.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="456.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn13" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue231" layoutX="459.0" layoutY="323.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="456.0" layoutY="363.0" mnemonicParsing="false" onAction="#btn23" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue332" layoutX="459.0" layoutY="410.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="456.0" layoutY="443.0" mnemonicParsing="false" onAction="#btn33" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Separator layoutX="510.0" layoutY="149.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="510.0" layoutY="230.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="510.0" layoutY="311.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="510.0" layoutY="391.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Label fx:id="f031" layoutX="459.0" layoutY="182.0" text="Label" visible="false" />
+      <Label fx:id="f131" layoutX="457.0" layoutY="264.0" text="Label" visible="false" />
+      <Label fx:id="f231" layoutX="457.0" layoutY="345.0" text="Label" visible="false" />
+      <Label fx:id="f331" layoutX="457.0" layoutY="425.0" text="Label" visible="false" />
+      <Button layoutX="481.0" layoutY="199.0" mnemonicParsing="false" onAction="#f03" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="484.0" layoutY="283.0" mnemonicParsing="false" onAction="#f13" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="483.0" layoutY="443.0" mnemonicParsing="false" onAction="#f33" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="484.0" layoutY="363.0" mnemonicParsing="false" onAction="#f23" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Rectangle fx:id="box3311" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="455.0" layoutY="473.0" onMouseClicked="#box33Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Label fx:id="lb3311" layoutX="457.0" layoutY="473.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="wvalue3311" layoutX="459.0" layoutY="491.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="456.0" layoutY="524.0" mnemonicParsing="false" onAction="#btn33" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Button layoutX="483.0" layoutY="524.0" mnemonicParsing="false" onAction="#f33" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Rectangle fx:id="box0311" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="566.0" layoutY="149.0" onMouseClicked="#box03Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box1311" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="566.0" layoutY="230.0" onMouseClicked="#box13Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box2311" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="566.0" layoutY="311.0" onMouseClicked="#box23Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box3321" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="566.0" layoutY="392.0" onMouseClicked="#box33Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Label fx:id="lb0311" layoutX="568.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb1311" layoutX="568.0" layoutY="230.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb2311" layoutX="568.0" layoutY="310.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb3321" layoutX="568.0" layoutY="392.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="wvalue0311" layoutX="570.0" layoutY="167.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="565.0" layoutY="199.0" mnemonicParsing="false" onAction="#btn03" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue1311" layoutX="570.0" layoutY="248.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="567.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn13" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue2311" layoutX="570.0" layoutY="323.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="567.0" layoutY="363.0" mnemonicParsing="false" onAction="#btn23" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue3321" layoutX="570.0" layoutY="410.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="567.0" layoutY="443.0" mnemonicParsing="false" onAction="#btn33" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Separator layoutX="621.0" layoutY="149.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="621.0" layoutY="230.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="621.0" layoutY="311.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="621.0" layoutY="391.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Label fx:id="f0311" layoutX="570.0" layoutY="182.0" text="Label" visible="false" />
+      <Label fx:id="f1311" layoutX="568.0" layoutY="264.0" text="Label" visible="false" />
+      <Label fx:id="f2311" layoutX="568.0" layoutY="345.0" text="Label" visible="false" />
+      <Label fx:id="f3311" layoutX="568.0" layoutY="425.0" text="Label" visible="false" />
+      <Button layoutX="592.0" layoutY="199.0" mnemonicParsing="false" onAction="#f03" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="595.0" layoutY="283.0" mnemonicParsing="false" onAction="#f13" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="594.0" layoutY="443.0" mnemonicParsing="false" onAction="#f33" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="595.0" layoutY="363.0" mnemonicParsing="false" onAction="#f23" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Rectangle fx:id="box33111" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="566.0" layoutY="473.0" onMouseClicked="#box33Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Label fx:id="lb33111" layoutX="568.0" layoutY="473.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="wvalue33111" layoutX="570.0" layoutY="491.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="567.0" layoutY="524.0" mnemonicParsing="false" onAction="#btn33" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Button layoutX="594.0" layoutY="524.0" mnemonicParsing="false" onAction="#f33" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Label fx:id="pstid1" layoutX="727.0" layoutY="184.0" opacity="0.0" prefHeight="17.0" prefWidth="72.0" text="Deselected" visible="false" />
+      <Rectangle fx:id="box03111" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="677.0" layoutY="149.0" onMouseClicked="#box03Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box13111" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="677.0" layoutY="230.0" onMouseClicked="#box13Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box23111" arcHeight="5.0" arcWidth="5.0" fill="LIME" height="80.0" layoutX="677.0" layoutY="311.0" onMouseClicked="#box23Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Rectangle fx:id="box33211" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="677.0" layoutY="392.0" onMouseClicked="#box33Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Label fx:id="lb03111" layoutX="679.0" layoutY="149.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb13111" layoutX="679.0" layoutY="230.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb23111" layoutX="679.0" layoutY="310.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="lb33211" layoutX="679.0" layoutY="392.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="wvalue03111" layoutX="681.0" layoutY="167.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="676.0" layoutY="199.0" mnemonicParsing="false" onAction="#btn03" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue13111" layoutX="681.0" layoutY="248.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="678.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn13" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue23111" layoutX="681.0" layoutY="323.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="678.0" layoutY="363.0" mnemonicParsing="false" onAction="#btn23" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Label fx:id="wvalue33211" layoutX="681.0" layoutY="410.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="678.0" layoutY="443.0" mnemonicParsing="false" onAction="#btn33" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Separator layoutX="732.0" layoutY="149.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="732.0" layoutY="230.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="732.0" layoutY="311.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Separator layoutX="732.0" layoutY="391.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="7.0" visible="false" />
+      <Label fx:id="f03111" layoutX="681.0" layoutY="182.0" text="Label" visible="false" />
+      <Label fx:id="f13111" layoutX="679.0" layoutY="264.0" text="Label" visible="false" />
+      <Label fx:id="f23111" layoutX="679.0" layoutY="345.0" text="Label" visible="false" />
+      <Label fx:id="f33111" layoutX="679.0" layoutY="425.0" text="Label" visible="false" />
+      <Button layoutX="703.0" layoutY="199.0" mnemonicParsing="false" onAction="#f03" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="706.0" layoutY="283.0" mnemonicParsing="false" onAction="#f13" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="705.0" layoutY="443.0" mnemonicParsing="false" onAction="#f33" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Button layoutX="706.0" layoutY="363.0" mnemonicParsing="false" onAction="#f23" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
+      <Rectangle fx:id="box331111" arcHeight="5.0" arcWidth="5.0" fill="#83a152" height="80.0" layoutX="677.0" layoutY="473.0" onMouseClicked="#box33Clicked" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" visible="false" width="110.0" />
+      <Label fx:id="lb331111" layoutX="679.0" layoutY="473.0" prefHeight="18.0" prefWidth="54.0" text="Onion" visible="false" />
+      <Label fx:id="wvalue331111" layoutX="681.0" layoutY="491.0" prefHeight="17.0" prefWidth="43.0" text="1" visible="false" />
+      <Button layoutX="678.0" layoutY="524.0" mnemonicParsing="false" onAction="#btn33" prefHeight="25.0" prefWidth="28.0" text="W" visible="false" />
+      <Button layoutX="705.0" layoutY="524.0" mnemonicParsing="false" onAction="#f33" prefHeight="25.0" prefWidth="28.0" text="F" visible="false" />
    </children>
 </AnchorPane>

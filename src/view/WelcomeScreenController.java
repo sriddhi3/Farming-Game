@@ -15,13 +15,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-//import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author Sheikh Munim Tazwar Riddhi
+ * @author Sardar Tariq Khan
  */
 public class WelcomeScreenController implements Initializable {
 
